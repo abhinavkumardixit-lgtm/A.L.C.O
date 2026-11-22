@@ -1,0 +1,17 @@
+{
+  "source_dataset": "nvidia/HiLiftAeroML",
+  "dataset_url": "https://huggingface.co/datasets/nvidia/HiLiftAeroML",
+  "total_cfd_instances": 1800,
+  "unique_geometries": 180,
+  "train_instances": 1440,
+  "held_out_test_instances": 180,
+  "metrics": {
+    "cl_relative_error_pct": 11.607569694519043,
+    "cl_r2_score": 0.35288816690444946,
+    "cd_relative_error_pct": 20.172597885131836,
+    "cd_r2_score": 0.8020961284637451,
+    "cm_mae": 0.13131898641586304,
+    "inference_latency_ms": 0.037772799987578765
+  },
+  "timestamp": "2026-11-22 11:35:50"
+}
