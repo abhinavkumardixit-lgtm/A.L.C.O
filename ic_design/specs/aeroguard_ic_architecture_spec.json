@@ -1,0 +1,65 @@
+{
+  "ic_design_suite": {
+    "project": "AeroGuard-Net Autonomous UAV Flight Control System",
+    "lead_architect": "Abhinav Kumar Dixit (Independent Researcher, 2026)",
+    "suite_version": "v2.5.0-UltraBudget-Cheap",
+    "three_tier_architecture": {
+      "tier_1_ultra_budget_cheap": {
+        "target_audience": "Makers, University Labs, Mass-Production At-Scale Swarms",
+        "total_avionics_cost_usd": 11.12,
+        "total_flying_aircraft_cost_usd": 151.78,
+        "flight_computer": "ESP32-S3 (Dual 240MHz + AI Vector SIMD + Wi-Fi/BLE)",
+        "sensors": "ICM-42688P IMU + BMP280 Baro + ATGM336H GPS ($7.10 total)",
+        "sja_actuators": "Standard 27mm brass PZT discs with MT3608 boost circuit ($2.68 total)",
+        "airframe": "Hot-Wire Molded EPP Foam with 3D-Printed PETG Vector Nozzle ($46.50)"
+      },
+      "tier_2_compact_low_cost": {
+        "target_audience": "Commercial Delivery, Precision Agriculture, Tactical Scouting",
+        "total_avionics_cost_usd": 261.22,
+        "total_flying_aircraft_cost_usd": 1586.22,
+        "flight_computer": "STM32H743VIT6 + AG-GNN-MINI QFN ASIC",
+        "sensors": "u-blox ZED-F9P Centimeter RTK + Bosch BMI088 Industrial IMU",
+        "airframe": "Carbon Fiber Molded Monocoque (T300 Pre-Preg)"
+      },
+      "tier_3_defense_benchmark": {
+        "target_audience": "Defense, High-Altitude Long Endurance, Mil-Spec Operations",
+        "total_avionics_cost_usd": 3850.10,
+        "total_flying_aircraft_cost_usd": 8450.10,
+        "flight_computer": "NVIDIA Jetson Orin NX 16GB + AG-GNN28 TSMC ASIC",
+        "sensors": "VectorNav VN-300 Tactical RTK GNSS/INS",
+        "airframe": "Autoclaved T800 Carbon Pre-preg with Radar-Absorbent RAM Coating"
+      }
+    },
+    "custom_silicon_devices": [
+      {
+        "part_number": "AG-ESP32-EMBEDDED",
+        "device_name": "ESP32-S3 Embedded AI Firmware Core (Ultra-Budget Architecture)",
+        "cost_usd": 2.60,
+        "inference_engine": "ESP-NN Vector SIMD Q8.8 quantized graph convolution running at 100 Hz",
+        "latency_ms": 1.42,
+        "telemetry_radio": "Built-in 2.4 GHz 802.11b/g/n + BLE 5.0 (Long Range 1km+ line of sight)"
+      },
+      {
+        "part_number": "AG-GNN-MINI",
+        "device_name": "AeroGNN-Mini QFN Silicon Accelerator",
+        "cost_target_usd": 8.50,
+        "package": "QFN-48 (6.0 x 6.0 mm, 0.4mm pitch)",
+        "latency_ms": 0.118
+      },
+      {
+        "part_number": "AG-PZT-MINI",
+        "device_name": "AeroPZT-Mini Resonant Driver IC",
+        "cost_target_usd": 3.20,
+        "package": "QFN-24 (4.0 x 4.0 mm, 0.5mm pitch)"
+      }
+    ],
+    "ultra_budget_pcb_stackup": {
+      "stackup_name": "Standard 2-Layer Low-Cost FR-4 (JLCPCB $2 Special)",
+      "cost_per_board_usd": 0.40,
+      "substrate": "FR-4 standard 1.2mm",
+      "copper_weight_oz": [1, 1],
+      "min_trace_clearance_mil": 6.0,
+      "min_trace_width_mil": 6.0
+    }
+  }
+}

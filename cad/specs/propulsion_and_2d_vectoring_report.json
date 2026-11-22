@@ -1,0 +1,75 @@
+{
+  "design_parameters": {
+    "nozzle_architecture": "2D High-Aspect Convergent-Divergent with Articulating Serrated Flaps",
+    "aspect_ratio": 8.5,
+    "throat_area_m2": 0.0182,
+    "exit_area_m2": 0.0215,
+    "expansion_ratio": 1.181,
+    "edge_radar_sweep_angle_deg": 35.0,
+    "max_pitch_vectoring_deg": 18.0,
+    "max_yaw_vectoring_deg": 10.0,
+    "actuator_bandwidth_hz": 28.0,
+    "slew_rate_deg_per_sec": 65.0
+  },
+  "aerothermal_analysis": {
+    "turbine_exhaust_temp_k": 920.0,
+    "plume_temp_at_1m_round_k": 691.0,
+    "plume_temp_at_1m_2d_tvc_k": 390.5,
+    "plume_temp_at_exit_lip_k": 412.5,
+    "thermal_ir_attenuation_db": 5.26,
+    "mwir_3_5_um_attenuation_pct": 94.6,
+    "lwir_8_12_um_attenuation_pct": 91.2,
+    "nozzle_thrust_efficiency_cfg": 0.982,
+    "thrust_penalty_at_max_vectoring_pct": 2.45
+  },
+  "thrust_vectoring_moments": [
+    {
+      "deflection_deg": -18.0,
+      "axial_thrust_n": 420.27,
+      "normal_thrust_n": -135.58,
+      "pitch_moment_nm": -200.66
+    },
+    {
+      "deflection_deg": -12.0,
+      "axial_thrust_n": 432.24,
+      "normal_thrust_n": -91.22,
+      "pitch_moment_nm": -135.01
+    },
+    {
+      "deflection_deg": -6.0,
+      "axial_thrust_n": 439.48,
+      "normal_thrust_n": -45.86,
+      "pitch_moment_nm": -67.88
+    },
+    {
+      "deflection_deg": 0.0,
+      "axial_thrust_n": 441.9,
+      "normal_thrust_n": 0.0,
+      "pitch_moment_nm": 0.0
+    },
+    {
+      "deflection_deg": 6.0,
+      "axial_thrust_n": 439.48,
+      "normal_thrust_n": 45.86,
+      "pitch_moment_nm": 67.88
+    },
+    {
+      "deflection_deg": 12.0,
+      "axial_thrust_n": 432.24,
+      "normal_thrust_n": 91.22,
+      "pitch_moment_nm": 135.01
+    },
+    {
+      "deflection_deg": 18.0,
+      "axial_thrust_n": 420.27,
+      "normal_thrust_n": 135.58,
+      "pitch_moment_nm": 200.66
+    }
+  ],
+  "acoustic_suppression_features": {
+    "chevron_serration_count": 14,
+    "low_frequency_mixing_noise_attenuation_db": 4.8,
+    "bypass_ejector_noise_shielding_db": 3.2,
+    "total_acoustic_reduction_db": 8.0
+  }
+}

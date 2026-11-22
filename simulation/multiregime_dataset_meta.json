@@ -1,0 +1,83 @@
+{
+  "dataset_name": "AeroGuard-Net Comprehensive Multi-Regime Flight & Turbulence Dataset",
+  "total_samples": 12000,
+  "regimes": {
+    "0_takeoff_climb": {
+      "count": 2000,
+      "description": "Low speed, high lift, heavy payload, near ground flare"
+    },
+    "1_clean_cruise_transonic": {
+      "count": 2000,
+      "description": "High speed clean cruise, wave drag, L/D optimization"
+    },
+    "2_approach_ground_effect": {
+      "count": 2000,
+      "description": "Landing approach, ground image vortex effect, high-lift flaps"
+    },
+    "3_severe_turbulence_microburst": {
+      "count": 2000,
+      "description": "FAA discrete microbursts (-14 m/s) and continuous Dryden spectra"
+    },
+    "4_extreme_dynamic_stall": {
+      "count": 2000,
+      "description": "Deep stall envelope up to 42 deg AoA with dynamic hysteresis"
+    },
+    "5_actuator_sensor_degraded": {
+      "count": 2000,
+      "description": "Partial SJA failure, 10-25% clogged taps, battery voltage sag"
+    }
+  },
+  "feature_channels": {
+    "flow": [
+      "Mach",
+      "Reynolds_number",
+      "alpha_geom_deg",
+      "dynamic_pressure_Pa",
+      "pitch_rate_dps",
+      "ground_proximity_hb",
+      "gust_w_ms",
+      "gust_u_ms"
+    ],
+    "aeroelastic": [
+      "tip_deflection_mm",
+      "aeroelastic_twist_deg"
+    ],
+    "actuator": [
+      "sja_voltage_V",
+      "sja_frequency_Hz",
+      "sja_momentum_Cmu",
+      "sja_temperature_C",
+      "tvc_angle_deg",
+      "tvc_slew_rate_dps"
+    ],
+    "electrical": [
+      "battery_soc",
+      "bus_voltage_V",
+      "bus_current_A"
+    ],
+    "sensors": "32 surface pressure taps (16 upper, 16 lower) with realistic 22Pa noise and dropout masking",
+    "targets_forces": [
+      "CL",
+      "CD",
+      "CM",
+      "LD_ratio",
+      "load_factor_nz"
+    ],
+    "targets_flow": [
+      "is_separated",
+      "separation_chord_station_xc",
+      "stall_risk_metric",
+      "stall_delay_achieved_deg"
+    ]
+  },
+  "hardware_validation": {
+    "empty_weight_kg": 22.24,
+    "payload_kg": 24.0,
+    "mtow_kg": 46.24,
+    "wingspan_m": 3.6,
+    "sweep_deg": 34.99,
+    "piezo_resonance_hz": 461.12,
+    "driver_rail_v": 200.0
+  },
+  "timestamp": "2026-11-22 11:04:27"
+}

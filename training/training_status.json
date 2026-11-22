@@ -1,0 +1,37 @@
+{
+  "status": "RUNNING",
+  "cycle": 22417,
+  "elapsed_hours": 13.0425,
+  "target_hours": 50.0,
+  "progress_pct": 26.08,
+  "best_fitness": 209.913,
+  "current_metrics": {
+    "fitness": 209.91312953206776,
+    "ld_ratio": 13.734644242768342,
+    "critical_stall_deg": 35.383922579130385,
+    "gust_alleviation_pct": 78.0,
+    "intake_pressure_recovery": 0.9793719112463813,
+    "thermal_ir_attenuation_db": 23.16280844372786,
+    "rcs_stealth_score": 99.97611281169263,
+    "latency_ms": 0.5220994003825704
+  },
+  "current_state": {
+    "sweep_deg": 35.00159247922049,
+    "wingspan_m": 4.2,
+    "root_chord_m": 1.8,
+    "tip_chord_m": 0.3735281717650095,
+    "washout_twist_deg": -3.5,
+    "reflex_camber": 0.07,
+    "blend_radius_m": 0.9972045226141057,
+    "s_duct_diff_angle": 7.908572986553144,
+    "nozzle_aspect_ratio": 8.437640201694483,
+    "thrust_vector_deg": 14.838446185742548,
+    "sja_frequency_hz": 456.9626992360845,
+    "sja_momentum_cmu": 0.055,
+    "sja_slot_x_ratio": 0.22777061156076042,
+    "nn_learning_rate": 0.0028137522586124375,
+    "nn_latency_budget_ms": 0.5220994003825704,
+    "gust_alleviation_gain": 1.5037434085325994
+  },
+  "last_updated": "2026-11-22 11:16:15"
+}

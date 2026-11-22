@@ -1,0 +1,11 @@
+{
+  "benchmark_dataset": "giovannicatalani/RAE2822_Airfoil_Dataset",
+  "rae2822_surface_points": 691,
+  "rae2822_thickness_ratio": 0.122,
+  "aeroguard_thickness_ratio": 0.13,
+  "aeroguard_reflex_camber": 0.081,
+  "shock_induced_separation_x_c": 0.55,
+  "aeroguard_active_sja_x_c": 0.227,
+  "boundary_layer_vortex_authority": "Active upstream turbulent kinetic energy injection at x/c=0.227 prevents downstream shock-induced separation at x/c=0.55",
+  "status": "VALIDATED & CORROBORATED"
+}

@@ -1,0 +1,46 @@
+{
+  "power_budget": {
+    "battery_total_energy_wh": 976.8,
+    "usable_energy_wh": 830.3,
+    "cruise_power_draw_w": 386.0,
+    "peak_microburst_power_w": 877.0,
+    "cruise_endurance_minutes": 129.1,
+    "worst_case_endurance_minutes": 56.8,
+    "nominal_current_draw_amps": 8.69,
+    "peak_current_draw_amps": 19.75,
+    "recommendation": "12S GaN PDB rated for 60A continuous / 120A burst with active current sensing"
+  },
+  "schematic": {
+    "buses": {
+      "CAN_FD_PRIMARY": {
+        "baud_rate": "5 Mbps",
+        "transceiver": "TCAN334GDR",
+        "differential_impedance": "120 Ohm"
+      },
+      "SPI_HIGH_SPEED": {
+        "clock": "40 MHz",
+        "function": "Orin NX <-> STM32 Flight Telemetry DMA"
+      },
+      "I2C_AIR_DATA": {
+        "clock": "400 kHz",
+        "function": "16-Point Flush Static Pitot Sensors"
+      },
+      "HIGH_VOLTAGE_PZT_RAIL": {
+        "voltage": "+200V DC Pulsed",
+        "frequency": "450 Hz",
+        "driver": "Apex PA93 Power Op-Amp"
+      }
+    },
+    "connectors": {
+      "J1_BATTERY_INPUT": "Amass AS150 Anti-Spark (12S 50.4V max)",
+      "J2_ORIN_NX_POWER": "Molex Micro-Fit 3.0 6-Pin (19V / 4A buck regulated)",
+      "J3_SERVO_BUS": "JST-GH 4-Pin CAN-FD (12V Power + CAN_H / CAN_L)",
+      "J4_SJA_ACTUATOR_OUTPUT": "TE Connectivity High-Voltage SHV Coaxial Jack",
+      "J5_STANAG_PAYLOAD": "Amphenol MIL-DTL-38999 Series III 13-Pin"
+    },
+    "isolation_barriers": {
+      "digital_to_high_voltage": "Silicon Labs Si8641 5kV Galvanic Isolator",
+      "ground_planes": "Optically isolated AGND (Sensors) vs PGND (Motors/SJA)"
+    }
+  }
+}

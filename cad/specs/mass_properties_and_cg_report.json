@@ -1,0 +1,99 @@
+{
+  "aircraft": "AeroGuard-Net Stealth Heavy-Lift UAV (Readjusted Avionics)",
+  "lead_researcher": "Abhinav Kumar Dixit (Independent Researcher, 2026)",
+  "geometry": {
+    "wingspan_m": 4.18,
+    "mac_m": 1.246,
+    "wing_area_m2": 4.56,
+    "aspect_ratio": 3.832,
+    "neutral_point_x_m": 1.097
+  },
+  "mass_properties": {
+    "old_empty_weight_kg": 24.6,
+    "new_empty_weight_kg": 22.24,
+    "weight_reduction_kg": 2.36,
+    "max_takeoff_weight_kg": 46.24,
+    "payload_fraction_pct": 51.9
+  },
+  "aerodynamic_drag_comparison": {
+    "cruise_speed_ms": 38.0,
+    "old_empty_cruise_drag_n": 25.8,
+    "new_empty_cruise_drag_n": 45.87,
+    "drag_reduction_pct": -77.79,
+    "max_lift_to_drag": 7.58,
+    "stall_angle_deg": 35.47,
+    "stall_suppression_active": true
+  },
+  "cargo_bay_expansion": {
+    "old_volume_liters": 95.0,
+    "new_volume_liters": 122.0,
+    "expansion_pct": 28.4
+  },
+  "payload_scenarios": {
+    "payload_0kg": {
+      "takeoff_weight_kg": 22.24,
+      "payload_kg": 0.0,
+      "x_cg_m": 1.058,
+      "static_margin_pct": 3.16,
+      "stability_status": "STABLE",
+      "cl_cruise": 0.0626,
+      "cd_total": 0.01317,
+      "drag_cruise_n": 45.87,
+      "lift_to_drag_ratio": 4.76,
+      "thrust_required_n": 45.87,
+      "aerodynamic_power_required_w": 1743.0
+    },
+    "payload_10kg": {
+      "takeoff_weight_kg": 32.24,
+      "payload_kg": 10.0,
+      "x_cg_m": 1.016,
+      "static_margin_pct": 6.52,
+      "stability_status": "HIGHLY STABLE & DAMPED",
+      "cl_cruise": 0.0908,
+      "cd_total": 0.01357,
+      "drag_cruise_n": 47.28,
+      "lift_to_drag_ratio": 6.69,
+      "thrust_required_n": 47.28,
+      "aerodynamic_power_required_w": 1796.6
+    },
+    "payload_15kg": {
+      "takeoff_weight_kg": 37.24,
+      "payload_kg": 15.0,
+      "x_cg_m": 1.003,
+      "static_margin_pct": 7.53,
+      "stability_status": "HIGHLY STABLE & DAMPED",
+      "cl_cruise": 0.1049,
+      "cd_total": 0.01383,
+      "drag_cruise_n": 48.18,
+      "lift_to_drag_ratio": 7.58,
+      "thrust_required_n": 48.18,
+      "aerodynamic_power_required_w": 1830.9
+    },
+    "payload_22kg": {
+      "takeoff_weight_kg": 44.24,
+      "payload_kg": 22.0,
+      "x_cg_m": 0.991,
+      "static_margin_pct": 8.55,
+      "stability_status": "HIGHLY STABLE & DAMPED",
+      "cl_cruise": 0.1246,
+      "cd_total": 0.01426,
+      "drag_cruise_n": 49.66,
+      "lift_to_drag_ratio": 8.74,
+      "thrust_required_n": 49.66,
+      "aerodynamic_power_required_w": 1887.0
+    },
+    "payload_24kg": {
+      "takeoff_weight_kg": 46.24,
+      "payload_kg": 24.0,
+      "x_cg_m": 0.988,
+      "static_margin_pct": 8.79,
+      "stability_status": "HIGHLY STABLE & DAMPED",
+      "cl_cruise": 0.1302,
+      "cd_total": 0.01439,
+      "drag_cruise_n": 50.13,
+      "lift_to_drag_ratio": 9.05,
+      "thrust_required_n": 50.13,
+      "aerodynamic_power_required_w": 1904.9
+    }
+  }
+}

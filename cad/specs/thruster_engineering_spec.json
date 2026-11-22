@@ -1,0 +1,45 @@
+{
+  "thruster_system": {
+    "project": "AeroGuard-Net Stealth Heavy-Lift UAV",
+    "lead_architect": "Abhinav Kumar Dixit (Independent Researcher, 2026)",
+    "thruster_designation": "AeroThrust-150-EDF",
+    "configuration": "Embedded High-Efficiency Ducted Fan with Integrated Flow Straighteners",
+    "mechanical_dimensions": {
+      "shroud_outer_diameter_mm": 166.0,
+      "shroud_inner_diameter_mm": 150.0,
+      "shroud_axial_length_mm": 220.0,
+      "rotor_diameter_mm": 147.0,
+      "tip_clearance_mm": 1.5,
+      "centerbody_diameter_mm": 56.0,
+      "rotor_blades_count": 14,
+      "stator_vanes_count": 9,
+      "total_mass_dry_kg": 1.72
+    },
+    "aerodynamic_performance": {
+      "nominal_cruise_thrust_n": 48.0,
+      "peak_takeoff_thrust_n": 245.0,
+      "max_burst_thrust_n": 310.0,
+      "efflux_velocity_cruise_ms": 52.4,
+      "efflux_velocity_burst_ms": 78.5,
+      "mass_flow_rate_cruise_kg_s": 2.45,
+      "mass_flow_rate_peak_kg_s": 4.15,
+      "fan_efficiency_pct": 88.5,
+      "stator_pressure_recovery_pct": 96.2
+    },
+    "electrical_drive": {
+      "motor_type": "Brushless Sensorless Outrunner / Inrunner Hybrid (12S rated)",
+      "motor_kv": 480,
+      "nominal_voltage_v": 44.4,
+      "max_voltage_v": 50.4,
+      "cruise_power_w": 295.0,
+      "peak_power_w": 2850.0,
+      "cooling_method": "Forced Internal Centrifugal Airflow + Cold Bypass Dilution"
+    },
+    "acoustic_and_ir_suppression": {
+      "acoustic_blade_pass_frequency_hz": 4200.0,
+      "noise_attenuation_db": 14.8,
+      "infrared_signature_reduction_pct": 94.6,
+      "plume_shielding": "Fully masked line-of-sight from bottom and rear-quarter radars"
+    }
+  }
+}

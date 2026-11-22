@@ -1,0 +1,15 @@
+component,tier,mfg_pn,supplier,qty,pkg,cost_usd,footprint_mm2,notes
+ESP32-S3 AI Flight Computer + Radio,Ultra-Budget Cheap,ESP32-S3-WROOM-1,Espressif/LCSC,1,SMD Module 18x25mm,2.60,450.0,Dual 240MHz + SIMD AI Vector instructions + built-in Wi-Fi/BLE telemetry
+6-DOF Low-Noise IMU + Baro,Ultra-Budget Cheap,ICM-42688P + BMP280,InvenSense/Bosch,1,QFN-14 2.5x3mm,1.95,7.5,Ultra-low noise gyro/accel + 10cm barometric altitude resolution
+All-in-One Multi-GNSS Receiver,Ultra-Budget Cheap,ATGM336H / NEO-M8N,Zhongke/u-blox,1,SMD 12x16mm,4.20,192.0,Concurrent GPS/BDS/GLONASS positioning at 10Hz
+Piezo Boost Inverter & Driver,Ultra-Budget Cheap,MT3608 Boost + IRF7306 Dual FET,Aerosemi / Infineon,2,SOT-23-6 / SOIC-8,0.92,48.0,Steps 5V/12V up to 80V-120V with resonant complementary driver
+Standard PZT Actuator Discs,Ultra-Budget Cheap,Murata 27mm PZT Brass Discs,Murata / AliExpress,8,Disc 27mm dia,0.22,4580.0,High-volume brass-backed piezoelectric buzzer diaphragms ($1.76 total)
+High-Speed UART / Direct Bus,Ultra-Budget Cheap,Direct MCU GPIO / 1-Wire,Internal Silicon,1,On-Chip Silicon,0.00,0.0,Replaces $5 CAN-FD transceivers with direct high-speed UART/SPI buses
+Synchronous Step-Down Buck,Ultra-Budget Cheap,MP1584EN Step-Down Module,MPS / LCSC,1,Mini SMD 17x22mm,0.45,374.0,92% efficient 3A step-down regulator from battery to 5V logic
+High-Power Drone Motors (Pair),Ultra-Budget Cheap,Emax ECO II 2807 1300KV,Emax / Sunnysky,2,M3 Bolt Pattern,14.50,1520.0,2.1kg thrust per motor on 6S ($29.00 pair)
+Brushless Motor ESCs (Pair),Ultra-Budget Cheap,40A BLHeli_S DShot600 ESC,Flycolor / Emax,2,SMD Heatshrink,6.80,600.0,Telemetry-enabled bi-directional motor speed controllers ($13.60 pair)
+High-Density EPP Foam Airframe,Ultra-Budget Cheap,EPP 30g/L Hot-Wire Cut + Carbon,Local Foam/Makers,1,Molded Wing Kit,42.00,850000.0,Crash-resistant radar-absorbing flying wing kit with 6mm carbon spars
+3D Printed 2D Vector Nozzle,Ultra-Budget Cheap,PETG / Polycarbonate Filament,eSun / Bambu Lab,1,3D Print (180g),4.50,15000.0,Fused deposition 2D nozzle with interior aluminum tape heat reflector
+High-Discharge Battery Pack,Ultra-Budget Cheap,CNHL 6S 5000mAh 70C LiPo,CNHL / HobbyKing,1,Brick Pack,42.00,12000.0,High-C burst power pack with 45-min cruise endurance
+Digital Micro Servos (4x),Ultra-Budget Cheap,MG90S Metal Gear 9g Servos,TowerPro,4,Standard Ear Mount,1.85,320.0,Metal gear digital servos for elevons & thrust vectoring ($7.40 total)
+Complete Ultra-Budget Airframe & Avionics,Ultra-Budget Cheap,TOTAL_AIRCRAFT_KIT,Turnkey / DIY,1,Full UAV Kit,151.78,880411.5,Complete flying turbulence-suppressing stealth UAV under $152!

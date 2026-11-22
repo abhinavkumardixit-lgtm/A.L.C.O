@@ -1,0 +1,13 @@
+# Git ignore for A.L.C.O.
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+venv/
+.pytest_cache/
+.DS_Store
+Thumbs.db
+*.log
+stop_training.flag
