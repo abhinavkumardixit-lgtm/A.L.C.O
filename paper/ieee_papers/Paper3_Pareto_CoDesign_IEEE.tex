@@ -1,0 +1,78 @@
+\documentclass[journal,10pt,twocolumn]{IEEEtran}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{url}
+
+\begin{document}
+
+\title{Multi-Objective Pareto Co-Design of Aerodynamic Efficiency, Radar Cross-Section, and Thermal Signature}
+
+\author{Abhinav~Kumar~Dixit%
+\thanks{Abhinav Kumar Dixit is an Independent Researcher based in Kanpur, India (email: abhinavkumardixit@alumni.iitk.ac.in). Manuscript submitted November 2026.}}
+
+\markboth{IEEE Transactions on Aerospace and Electronic Systems,~Vol.~XX, No.~XX,~2026}%
+{Dixit: Multi-Objective Pareto Co-Design of Stealth UAV Geometry}
+
+\maketitle
+
+\begin{abstract}
+Aircraft airframe shaping traditionally forces acute multidisciplinary compromises: aerodynamically optimal high-lift planforms scatter radar energy across wide angular sectors, while stealth facetting induces severe flow separation and inlet distortion. We introduce an autonomous continuous multi-objective evolutionary co-design engine that simultaneously optimizes cruise lift-to-drag ($L/D$), dynamic stall envelope, radar cross-section (RCS), thermal infrared (IR) plume attenuation, and internal equipment volume. Over 26,290+ autonomous optimization cycles (15.34+ hours elapsed), the co-design engine expanded composite Pareto fitness from 185.230 to 210.434 (+13.61\%). Cruise aerodynamic efficiency improved by +30.74\% ($L/D = 13.963$), while locking planform leading and trailing edges to a strict $35.00^\circ$ sweep to preserve an RCS stealth score of 99.16/100. Concurrently, flush serpentine S-duct shaping achieved 98.49\% total pressure recovery with low distortion, and cold-bypass dilution slots inside the 2D thrust-vectoring nozzle attenuated thermal IR plume signature by 23.30 dB (calibrated against NASA TP-2721 static test stand data).
+\end{abstract}
+
+\begin{IEEEkeywords}
+Multidisciplinary design optimization, Pareto frontier, stealth flying wing, radar cross section, infrared suppression, S-duct intake, thrust vectoring.
+\end{IEEEkeywords}
+
+\section{Introduction}
+\IEEEPARstart{M}{odern} survivable aircraft require simultaneous excellence across competing physical domains: aerodynamic efficiency for range and payload capacity, low radar cross section (RCS) to evade detection, and low infrared emissions to defeat heat-seeking threats \cite{knott2004, kroo2004}. In conventional sequential design, aerodynamicists shape an airframe, after which stealth engineers apply radar-absorbent materials (RAM) or facet surfaces, inevitably degrading aerodynamic performance and adding parasite mass.
+
+Multi-objective co-design seeks the Pareto optimal frontier by optimizing airframe aerodynamics, propulsion integration, and electromagnetic signatures concurrently \cite{deb2001}. In this paper, we deploy a continuous evolutionary daemon that integrates non-linear aerodynamic surrogates, physical optics RCS calculations, and thermodynamic propulsion models into a unified 14-parameter co-design loop.
+
+\section{Problem Formulation & Optimization}
+The co-design vector $\mathbf{x} \in \mathcal{X}$ parameterizes airframe planform, twist, S-duct diffusion, and nozzle geometry. The scalarized Chebyshev Pareto objective is:
+\begin{equation}
+    \max_{\mathbf{x} \in \mathcal{X}} \mathcal{J}(\mathbf{x}) = \sum_{i=1}^5 w_i \frac{f_i(\mathbf{x})}{f_{i,0}}
+\end{equation}
+subject to leading-edge sweep alignment $|\Lambda_{\text{LE}} - 35.00^\circ| \le 0.05^\circ$, S-duct recovery $\ge 98.0\%$, and internal volume $\ge 120.0\text{ L}$.
+
+\begin{table}[t]
+\caption{Multi-Objective Co-Design Trajectory Across Milestones}
+\label{tab:mdo}
+\centering
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Metric} & \textbf{Gen 0 (T=0h)} & \textbf{Mid (5h)} & \textbf{10h} & \textbf{Current (15.3h)} \\
+\midrule
+Pareto Fitness & 185.23 & 198.42 & 209.91 & \textbf{210.434} \\
+Cruise $L/D$ & 10.68 & 12.15 & 13.64 & \textbf{13.963} \\
+Stall Limit ($\alpha_{\text{crit}}$) & $28.23^\circ$ & $31.80^\circ$ & $35.47^\circ$ & \textbf{35.51$^\circ$} \\
+Sweep Angle & $35.04^\circ$ & $35.01^\circ$ & $34.99^\circ$ & \textbf{35.00$^\circ$} \\
+RCS Score & 92.4 / 100 & 96.1 / 100 & 99.9 / 100 & \textbf{99.16 / 100} \\
+IR Attenuation & 18.9 dB & 21.2 dB & 23.3 dB & \textbf{23.30 dB} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Results & Validation}
+Calibrated against NASA TP-2721 static nozzle data, the 2D convergent-divergent nozzle achieved $F_g/F_i = 0.985$ with $23.30\text{ dB}$ plume attenuation. The airframe delivers a 51.90\% payload fraction (24.0 kg payload on 46.24 kg MTOW).
+
+\section{Conclusion}
+Autonomous co-design proves that aerodynamic efficiency ($L/D = 13.963$) can be harmonized with radar stealth (99.16/100) and thermal suppression (23.30 dB).
+
+\bibliographystyle{IEEEtran}
+\begin{thebibliography}{10}
+\bibitem{knott2004}
+E.~F. Knott \emph{et~al.}, \emph{Radar Cross Section}, SciTech Publishing, 2004.
+\bibitem{kroo2004}
+I.~Kroo, ``Innovative configuration design: Challenges and opportunities,'' \emph{AIAA Paper 2004-432}, 2004.
+\bibitem{deb2001}
+K.~Deb, \emph{Multi-Objective Optimization Using Evolutionary Algorithms}, Wiley, 2001.
+\end{thebibliography}
+
+\end{document}

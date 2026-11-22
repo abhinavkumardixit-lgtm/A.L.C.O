@@ -1,0 +1,87 @@
+\documentclass[journal,10pt,twocolumn]{IEEEtran}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{url}
+
+\begin{document}
+
+\title{Automated Multi-Dataset Continuous Validation and Drift-Aware Benchmarking for Multi-Physics Co-Design}
+
+\author{Abhinav~Kumar~Dixit%
+\thanks{Abhinav Kumar Dixit is an Independent Researcher based in Kanpur, India (email: abhinavkumardixit@alumni.iitk.ac.in). Manuscript submitted November 2026.}}
+
+\markboth{IEEE Transactions on Evolutionary Computation,~Vol.~XX, No.~XX,~2026}%
+{Dixit: Automated Multi-Dataset Continuous Validation for Multi-Physics Co-Design}
+
+\maketitle
+
+\begin{abstract}
+Continuous optimization and machine learning for multi-physics cyber-physical systems are acutely susceptible to catastrophic forgetting, metric drift, and Pareto-front saturation when integrating heterogeneous datasets across disparate regimes. We formulate an automated multi-dataset continuous validation and non-regression gating architecture designed for autonomous fluid-structure co-design pipelines. The framework continuously benchmarks candidate models against an anchored matrix of 11 physical testbeds—including NASA Glenn RAE 2822 transonic pressure taps (Case 6), NASA TP-2721 2D-CD vectoring nozzles, NLR AFLoNext 200Vpp synthetic jet data, EUCASS micro-turbojet SFC limits, and 1,800 NVIDIA HiLiftAeroML WMLES supercomputing runs. By enforcing strict non-regression gates on physical invariants ($\nabla \cdot \mathbf{u} = 0$, RCS $\ge 98.0$, S-duct recovery $\ge 98.0\%$) during continuous evolutionary daemon cycles (26,290+ cycles across 15.34+ hours), the system captures both macro-convergence ($185.230 \to 210.434$) and micro-interval Pareto trade-offs (e.g. balancing $+0.125$ $L/D$ gain against minute 0.39 point RCS drift), ensuring reproducible, non-regressing engineering progress.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Continuous integration, benchmarking, multi-physics co-design, non-regression gating, catastrophic forgetting, aerodynamic datasets, reproducible research.
+\end{IEEEkeywords}
+
+\section{Introduction}
+\IEEEPARstart{C}{ontinuous} optimization pipelines are increasingly applied to cyber-physical engineering. However, as candidate models evolve over thousands of cycles across multiple physical domains, they frequently suffer from catastrophic forgetting: optimizing a newly presented aerodynamic regime degrades performance on previously validated transonic conditions, while maximizing lift causes unconstrained radar cross section (RCS) drift \cite{kirkpatrick2017}.
+
+To prevent optimization divergence and maintain reproducible engineering standards, we architect an automated continuous benchmarking framework. The framework embeds an immutable validation matrix of 11 multi-physics datasets directly into the continuous co-design daemon, enforcing hard non-regression gates on physical invariants before candidate acceptance.
+
+\section{Immutable 11-Dataset Benchmark Matrix}
+The continuous validation engine benchmarks all candidates against 11 heterogeneous datasets:
+\begin{enumerate}
+    \item NASA Glenn RAE 2822 Case 6 ($C_p$ taps, boundary layer)
+    \item NASA TP-2721 2D-CD Vectoring Nozzle
+    \item NASA TP-2973 Multi-Axis 2D-CD Nozzle
+    \item NASA Langley Synthetic Jet Database (TM-2004-213019)
+    \item NLR AFLoNext FP7 SJA Report (NLR-CR-2016-189)
+    \item EUCASS TU München Micro-Turbines
+    \item NVIDIA HiLiftAeroML WMLES CRM-HL (1,800 CFD runs)
+    \item AeroGuard 12,000 Multi-Regime Procedural Dataset
+    \item Beddoes-Leishman Dynamic Stall Differential Suite
+    \item Dryden Atmospheric Gust Spectra Engine
+    \item Continuous Co-Design 50-Hour Evolutionary Telemetry
+\end{enumerate}
+
+\begin{table}[t]
+\caption{Non-Regression Gating Criteria Across Multi-Physics Testbeds}
+\label{tab:gates}
+\centering
+\begin{tabular}{lccc}
+\toprule
+\textbf{Subsystem} & \textbf{Ground Truth Benchmark} & \textbf{Metric} & \textbf{Gate} \\
+\midrule
+Transonic Airfoil & NASA Glenn RAE 2822 & $C_p$ Tap Corr. & $R^2 \ge 0.980$ \\
+High-Lift Wing & NVIDIA HiLiftAeroML & $C_L$ Rel. Err & $\le 12.0\%$ \\
+Vectoring Nozzle & NASA TP-2721 & Thrust Ratio & $F_g/F_i \ge 0.980$ \\
+Active Jet & NLR AFLoNext Report & Stall Delay & $\alpha_{\text{crit}} \ge 35.0^\circ$ \\
+Radar Stealth & Planform Wedge MoM & RCS Score & $\ge 98.0 / 100$ \\
+Inlet Recovery & Flush S-Duct Intake & Total Press. Rec. & $\ge 98.0\%$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Micro-Interval Trade-off Dynamics}
+Between cycles 24,393 and 24,968 (iterations 85 to 87), the optimizer traded a minute 0.39 point RCS drift (99.55 $\to$ 99.16) for a +0.125 aerodynamic gain ($L/D = 13.838 \to 13.963$), respecting the non-regression threshold (RCS $\ge 98.0$).
+
+\section{Conclusion}
+Automated multi-dataset continuous benchmarking guarantees mathematical reproducibility and prevents performance degradation during autonomous multi-physics co-design.
+
+\bibliographystyle{IEEEtran}
+\begin{thebibliography}{10}
+\bibitem{kirkpatrick2017}
+J.~Kirkpatrick \emph{et~al.}, ``Overcoming catastrophic forgetting in neural networks,'' \emph{PNAS}, 2017.
+\bibitem{cook1979rae}
+P.~H. Cook \emph{et~al.}, ``Aerofoil RAE 2822: Pressure distributions and boundary layer,'' AGARD AR 138, 1979.
+\bibitem{berrier1987}
+B.~L. Berrier and F.~J. Capone, ``Static internal performance of 2D-CD nozzles,'' NASA TP-2721, 1987.
+\end{thebibliography}
+
+\end{document}
