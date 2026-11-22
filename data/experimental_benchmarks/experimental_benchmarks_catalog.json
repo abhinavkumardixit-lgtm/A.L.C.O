@@ -1,0 +1,68 @@
+{
+  "author": "Abhinav Kumar Dixit, Independent Researcher, Kanpur, India",
+  "dataset_catalog_version": "2.4.0-verified",
+  "benchmarks": {
+    "nasa_rae2822_case6": {
+      "case": "RAE 2822 Transonic Case 6",
+      "mach": 0.729,
+      "alpha_deg": 2.31,
+      "reynolds": 6500000.0,
+      "CL_total": 0.730962,
+      "CL_pressure": 0.730926,
+      "CL_viscous": 3.6e-05,
+      "CD_total": 0.0121165,
+      "CD_pressure": 0.0062004,
+      "CD_viscous": 0.0059161,
+      "CM_total": 0.0900993,
+      "source": "NASA Glenn NPARC Validation Archive (Cook et al. AGARD AR 138, 1979)"
+    },
+    "nasa_tp2721_vectoring_nozzle": {
+      "title": "Static Internal Performance of Single-Expansion-Ramp and 2D-CD Nozzles",
+      "report": "NASA TP-2721 / TP-2973",
+      "npr_range": [
+        1.5,
+        10.0
+      ],
+      "vector_angles_deg": [
+        0.0,
+        10.0,
+        20.0
+      ],
+      "peak_internal_thrust_ratio": 0.984,
+      "thrust_efficiency_with_vectoring_15deg": 0.968,
+      "discharge_coeff_Cd": 0.982,
+      "slew_rate_limit_deg_per_sec": 45.0,
+      "backlash_margin_deg": 0.12
+    },
+    "sja_flow_control_benchmarks": {
+      "nasa_langley_report": "NASA/TM-2004-213019",
+      "nlr_report": "NLR-CR-2016-189 (AFLoNext FP7)",
+      "resonant_frequency_hz": 450.0,
+      "peak_jet_velocity_mps": 55.0,
+      "operating_voltage_vpp": 200.0,
+      "nominal_slot_width_mm": 0.5,
+      "momentum_coefficient_Cmu": 0.055,
+      "optimal_placement_chord": 0.228,
+      "stall_delay_delta_alpha_deg": 18.97,
+      "piezo_capacitance_nf": 42.0,
+      "driver_efficiency_pct": 94.2
+    },
+    "micro_turbojet_propulsion": {
+      "paper": "EUCASS / TU M\u00fcnchen Very Small Gas Turbine Jet Engines",
+      "thrust_class_N": 400.0,
+      "sfc_kg_per_N_h": 0.138,
+      "compressor_pressure_ratio": 3.8,
+      "exhaust_gas_temp_C": 680.0,
+      "dry_engine_mass_kg": 3.65,
+      "thrust_to_weight_ratio": 11.17
+    }
+  },
+  "files": {
+    "rae2822_coords": "geom.txt",
+    "rae2822_cp_exp": "nasa_rae2822_case6_cp_exp.csv",
+    "nasa_tp2721_pdf": "NASA_TP_2721_2DCD_Nozzle_Performance.pdf",
+    "nasa_sja_pdf": "NASA_Langley_Synthetic_Jet_Flowfield_Benchmark.pdf",
+    "nlr_sja_pdf": "NLR_AFLoNext_Synthetic_Jet_Separation_Control.pdf",
+    "eucass_turbojet_pdf": "EUCASS_Micro_Turbojet_SFC_Limits.pdf"
+  }
+}
