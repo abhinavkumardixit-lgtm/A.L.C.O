@@ -58,7 +58,7 @@ ax.annotate("", xy=(22, 17), xytext=(19, 17), arrowprops=dict(arrowstyle="->", l
 # 2. GI-FNO box
 ax.add_patch(patches.Rectangle((22, 3), 29, 27, facecolor="#EBEBEB", edgecolor="#111111", lw=1.2))
 ax.text(36.5, 26.5, "GI-FNO Global Core (22.8M)", ha="center", va="center", fontweight="bold", fontsize=8.0)
-ax.text(36.5, 14.5, "• 6x Fourier Spectral Layers (k_max=16)\n• PointNet++ Geometry Encoder (128-d)\n• Boundary-Weighted Loss (w_sep=5.0)\n• Surface-Cp Field Reconstruct\nLatency: 7.60 ms (RTX 4090, FP32)", 
+ax.text(36.5, 14.5, "• 4x Fourier Spectral Layers (k_max=32)\n• PointNet++ Geometry Encoder (128-d)\n• Boundary-Weighted Loss (w_sep=5.0)\n• Surface-Cp Field Reconstruct\nLatency: 7.60 ms (RTX 4090, FP32)", 
         ha="center", va="center", fontsize=6.8)
 
 # Arrow 2 -> 3
@@ -67,7 +67,7 @@ ax.annotate("", xy=(54, 17), xytext=(51, 17), arrowprops=dict(arrowstyle="->", l
 # 3. Edge Policy Core
 ax.add_patch(patches.Rectangle((54, 5), 25, 24, facecolor="#F5F5F5", edgecolor="#444444", lw=0.8))
 ax.text(66.5, 25.5, "Edge Control Policy (0.42M)", ha="center", va="center", fontweight="bold", fontsize=7.8)
-ax.text(66.5, 14.5, "• AG-GNN28 TSMC 28nm ASIC\n• Sparse-AMPU Matrix Routing\n• 500 ms Gust/Stall Horizon\n• Deterministic 0.082 ms Latency\nPower: 1.25W TDP (INT8/FP16)", 
+ax.text(66.5, 14.5, "• Synthesizable 28nm RTL Core\n• Sparse-AMPU Matrix Routing\n• 500 ms Gust/Stall Horizon\n• Deterministic 0.58 ms Latency\nPower: 11.4 W nom / 14.8 W pk", 
         ha="center", va="center", fontsize=6.8)
 
 # Arrow 3 -> 4
@@ -76,7 +76,7 @@ ax.annotate("", xy=(82, 17), xytext=(79, 17), arrowprops=dict(arrowstyle="->", l
 # 4. Actuators box
 ax.add_patch(patches.Rectangle((82, 5), 16, 24, facecolor="#EBEBEB", edgecolor="#222222", lw=0.8))
 ax.text(90, 25.5, "Active Actuators", ha="center", va="center", fontweight="bold", fontsize=7.8)
-ax.text(90, 14.5, "• 8x Piezo SJA Array\n• AG-PZT18 Resonant\n• 461.1 Hz Tank (94.2%)\n• 2D TVC Nozzle Flaps\n• C_mu = 0.055", 
+ax.text(90, 14.5, "• 8x Piezo SJA Array\n• AG-PZT18 Resonant\n• 456.0 Hz Tank (94.2%)\n• 2D TVC Nozzle Flaps\n• C_mu = 0.0182 nom (0.055 pk)", 
         ha="center", va="center", fontsize=6.8)
 
 fig.savefig(os.path.join(OUT_DIR, "fig_monochrome_architecture.png"))
@@ -214,7 +214,7 @@ for ax in axes.flat:
 # (a) Top Planform View
 ax = axes[0, 0]
 # Draw stealth flying wing planform: sweep = 35 deg
-span = 3.6
+span = 4.2
 root_c = 1.62
 tip_c = 0.38
 sweep_rad = np.radians(35.0)
@@ -242,10 +242,10 @@ ax.plot([0.3, 1.2], [0.35, 0.95], "k:", lw=1.2)
 ax.plot([-0.3, -1.2], [0.35, 0.95], "k:", lw=1.2)
 ax.text(0.9, 0.55, "SJA Array (8x)", fontsize=6.2, ha="center")
 
-ax.set_title("(a) Top Planform: 35.0° Edge Sweep (b = 3.6m)", fontsize=7.8, fontweight="bold", pad=3)
+ax.set_title("(a) Top Planform: 35.0° Edge Sweep (b = 4.2m)", fontsize=7.8, fontweight="bold", pad=3)
 ax.set_xlabel("Spanwise Station y (m)", fontsize=7.0)
 ax.set_ylabel("Fuselage Station x (m)", fontsize=7.0)
-ax.set_xlim(-2.0, 2.0)
+ax.set_xlim(-2.4, 2.4)
 ax.set_ylim(2.2, -0.2)
 ax.grid(True, ls=":", lw=0.4, color="#AAAAAA", alpha=0.5)
 
@@ -311,7 +311,7 @@ ax.plot([0.1, 0.5, 0.9], [-0.35, -0.25, -0.32], "k-", lw=1.4)
 # Cold bypass dilution slots
 ax.plot([0.2, 0.45], [0.42, 0.30], "k--", lw=0.9)
 ax.plot([0.2, 0.45], [-0.42, -0.30], "k--", lw=0.9)
-ax.text(0.32, 0.45, "Cold Bypass Slot\n(23.3 dB IR Atten.)", ha="center", fontsize=5.8)
+ax.text(0.32, 0.45, "Cold Bypass Slot\n(22.86 dB IR Atten.)", ha="center", fontsize=5.8)
 
 # Vectoring flap actuation (+/- 18 deg)
 ax.plot([0.9, 1.35], [0.32, 0.46], "k-", lw=1.8, label="Flap Up (+18°)")
@@ -345,7 +345,7 @@ ax1 = axes[0]
 ax1.set_xlim(0, 10)
 ax1.set_ylim(0, 10)
 ax1.axis("off")
-ax1.text(5, 9.6, "AG-GNN28-ASIC (TSMC 28nm HPC+)", ha="center", va="top", fontweight="bold", fontsize=8.2)
+ax1.text(5, 9.6, "AG-GNN28 Synthesizable 28nm RTL Core", ha="center", va="top", fontweight="bold", fontsize=8.2)
 
 b1 = patches.FancyBboxPatch((0.2, 0.2), 9.6, 9.0, boxstyle="round,pad=0.15", facecolor="#F8F8F8", edgecolor="#111111", lw=1.0)
 ax1.add_patch(b1)
@@ -377,14 +377,14 @@ ax2 = axes[1]
 ax2.set_xlim(0, 10)
 ax2.set_ylim(0, 10)
 ax2.axis("off")
-ax2.text(5, 9.6, "AG-PZT18-BCD Driver (TSMC 0.18um BCD)", ha="center", va="top", fontweight="bold", fontsize=8.2)
+ax2.text(5, 9.6, "AG-PZT18 Resonant GaN Driver Stage", ha="center", va="top", fontweight="bold", fontsize=8.2)
 
 b2 = patches.FancyBboxPatch((0.2, 0.2), 9.6, 9.0, boxstyle="round,pad=0.15", facecolor="#F8F8F8", edgecolor="#111111", lw=1.0)
 ax2.add_patch(b2)
 
 # Top modules
 ax2.add_patch(patches.Rectangle((0.6, 6.8), 4.2, 1.8, facecolor="#EDEDED", edgecolor="#222222", lw=0.8))
-ax2.text(2.7, 7.7, "Zero-Crossing PLL\n461.1 Hz Resonance Track\n(0.1 Hz Accuracy)", ha="center", va="center", fontsize=6.8, fontweight="bold")
+ax2.text(2.7, 7.7, "Zero-Crossing PLL\n456.0 Hz Resonance Track\n(0.1 Hz Accuracy)", ha="center", va="center", fontsize=6.8, fontweight="bold")
 
 ax2.add_patch(patches.Rectangle((5.2, 6.8), 4.2, 1.8, facecolor="#EDEDED", edgecolor="#222222", lw=0.8))
 ax2.text(7.3, 7.7, "Protection Logic\nDead-Time Interlock (200ns)\nOvercurrent Trip (<45ns)", ha="center", va="center", fontsize=6.8)
@@ -392,7 +392,7 @@ ax2.text(7.3, 7.7, "Protection Logic\nDead-Time Interlock (200ns)\nOvercurrent T
 # Power Stage
 ax2.add_patch(patches.Rectangle((0.6, 3.2), 8.8, 2.9, facecolor="#E4E4E4", edgecolor="#111111", lw=0.9))
 ax2.text(5.0, 5.2, "200V Differential DMOS Power Stage (Rds = 0.45 Ohm)", ha="center", va="center", fontsize=7.2, fontweight="bold")
-ax2.text(5.0, 4.1, "Tuned Inductor L = 2.2 mH  |  Zero-Voltage Switching\nResonant Power Efficiency: 94.2% at 461.1 Hz", ha="center", va="center", fontsize=6.5)
+ax2.text(5.0, 4.1, "Tuned Inductor L = 2.53 H  |  Zero-Voltage Switching\nResonant Power Efficiency: 94.2% at 456.0 Hz", ha="center", va="center", fontsize=6.5)
 
 # Cavity Load
 ax2.add_patch(patches.Rectangle((0.6, 0.8), 8.8, 1.8, facecolor="#FFFFFF", edgecolor="#222222", lw=0.8))
@@ -437,12 +437,12 @@ draw_block(2, 2, 22, 34,
 # Block 2: AI Companion
 draw_block(26, 2, 23, 34,
            "AI COMPANION COMPUTER", "Jetson Orin NX (16GB)",
-           ["AeroGuard GI-FNO Host", "0.52 ms Edge Policy Latency", "500 ms Gust Prediction", "20-step iLQR MPC Loop", "1TB PCIe NVMe Blackbox", "Ethernet / CAN Gateway"])
+           ["AeroGuard GI-FNO Host", "0.58 ms Edge Policy Latency", "500 ms Gust Prediction", "20-step iLQR MPC Loop", "1TB PCIe NVMe Blackbox", "Ethernet / CAN Gateway"])
 
 # Block 3: Custom Silicon & Driver
 draw_block(51, 2, 23, 34,
-           "CUSTOM SILICON CORE", "TSMC 28nm & 0.18um BCD",
-           ["AG-GNN28-ASIC (0.082 ms)", "1.25W TDP (INT8 Systolic)", "AG-PZT18 Resonant Driver", "200V Rail Zero-Voltage Sw.", "94.2% Power Efficiency", "<45 ns Overcurrent Trip"])
+           "CUSTOM SILICON CORE", "Synthesizable 28nm & GaN Bench",
+           ["Systolic INT8 ASIC (0.082 ms)", "1.25W TDP (INT8 Core)", "AG-PZT18 Resonant Driver", "200V Rail Zero-Voltage Sw.", "94.2% Power Efficiency", "<45 ns Overcurrent Trip"])
 
 # Block 4: Propulsion & Actuation
 draw_block(76, 2, 22, 34,
