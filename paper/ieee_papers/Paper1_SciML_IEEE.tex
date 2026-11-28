@@ -32,7 +32,7 @@ Neural operators, Fourier neural operator, scientific machine learning, high-lif
 \end{IEEEkeywords}
 
 \section{Introduction}
-\IEEEPARSTART{T}{he} aerodynamic certification and real-time control of modern flight vehicles operating near the boundaries of their flight envelopes require precise resolution of strongly non-linear fluid phenomena. At high angles of attack or under severe atmospheric gusts, lifting surfaces experience adverse pressure gradients that trigger boundary layer detachment, unsteady vortex shedding, and dynamic stall. In transonic cruise, shock-boundary layer interactions induce local boundary layer thickening and flow separation, fundamentally altering flight dynamics.
+\IEEEPARstart{T}{he} aerodynamic certification and real-time control of modern flight vehicles operating near the boundaries of their flight envelopes require precise resolution of strongly non-linear fluid phenomena. At high angles of attack or under severe atmospheric gusts, lifting surfaces experience adverse pressure gradients that trigger boundary layer detachment, unsteady vortex shedding, and dynamic stall. In transonic cruise, shock-boundary layer interactions induce local boundary layer thickening and flow separation, fundamentally altering flight dynamics.
 
 While computational fluid dynamics (CFD) methods have matured significantly, computational expense remains prohibitive for real-time applications. High-fidelity Wall-Modelled Large Eddy Simulation (WMLES) captures turbulent coherent structures accurately but requires supercomputing clusters. Linear eddy-viscosity RANS models (e.g., Spalart-Allmaras and Menter SST) introduce empirical closures that fail to capture massive separation \cite{leishman2002}. Scientific machine learning (SciML) has emerged as a promising alternative \cite{brunton2020}, yet standard neural network surrogates suffer from grid dependence and lack physical conservation.
 
@@ -172,7 +172,7 @@ Trailing Flap 2 (Main) & 0.024 & 1.62 & 1.60 & 1.24\% \\
 \label{fig:ablation}
 \end{figure}
 
-\subsection{Out-of-Distribution (OOD) Extrapolation & Edge Profiling}
+\subsection{Out-of-Distribution (OOD) Extrapolation \& Edge Profiling}
 When extrapolated beyond the nominal training envelope ($\alpha \in [22.5^\circ, 35.51^\circ]$) and across unseen slat/flap gap ratios, the Riemannian curvature invariant $\Delta_{\mathcal{M}}$ constrains unphysical pressure oscillations, bounding $C_L$ drift within $3.2\%$ under deep dynamic stall. To enable deterministic closed-loop flight envelope protection, the 22.8M-parameter GI-FNO (7.60~ms FP32 on RTX 4090; 2.40~ms FP16 on AGX Orin) is distilled into a symmetric INT8 0.42M-parameter edge control policy. Table~\ref{tab:hardware} summarizes latency and power across platforms, confirming 0.58~ms deterministic WCET on Jetson Orin NX.
 
 \begin{table}[h]

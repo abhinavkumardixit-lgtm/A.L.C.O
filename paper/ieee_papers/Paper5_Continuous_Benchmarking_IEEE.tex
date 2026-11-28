@@ -32,7 +32,7 @@ Continuous validation, drift-aware benchmarking, catastrophic forgetting, elasti
 \end{IEEEkeywords}
 
 \section{Introduction}
-\IEEEPARSTART{E}{volutionary} algorithms and neural operator surrogates have demonstrated remarkable efficacy in multidisciplinary design optimization (MDO). However, as optimization algorithms explore novel geometric configurations, neural surrogates are continuously fine-tuned on new high-fidelity simulations. In multi-physics systems spanning disparate flow regimes (subsonic, transonic, separated), this continuous adaptation frequently triggers \emph{catastrophic forgetting}: the neural network reallocates latent weights to fit new local geometries while degrading prediction accuracy on canonical physics baselines.
+\IEEEPARstart{E}{volutionary} algorithms and neural operator surrogates have demonstrated remarkable efficacy in multidisciplinary design optimization (MDO). However, as optimization algorithms explore novel geometric configurations, neural surrogates are continuously fine-tuned on new high-fidelity simulations. In multi-physics systems spanning disparate flow regimes (subsonic, transonic, separated), this continuous adaptation frequently triggers \emph{catastrophic forgetting}: the neural network reallocates latent weights to fit new local geometries while degrading prediction accuracy on canonical physics baselines.
 
 To overcome this fundamental challenge in computational engineering, we introduce an automated multi-dataset continuous validation harness that continuously evaluates surrogate checkpoints against 11 physical benchmarks.
 
