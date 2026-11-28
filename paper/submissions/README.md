@@ -1,6 +1,7 @@
 # A.L.C.O. / AeroGuard-Net — Standalone Submission Packages
 
 **Author**: Abhinav Kumar Dixit (Independent Researcher, Kanpur, India)  
+**Zenodo Dataset & Telemetry DOI**: [`10.5281/zenodo.24621665`](https://doi.org/10.5281/zenodo.24621665)  
 **Live Telemetry (41,353+ Cycles | 40.63h | Fitness 210.709)**: [training/continuous_training_log.csv](../../training/continuous_training_log.csv) | [Hugging Face Space](https://huggingface.co/spaces/Abhi-nav-0007/Train_A_Rocket)
 
 | Folder | Paper Title | Rating (Paper-Orchestra) | Primary Venue (IEEE / AIAA) | Springer / Elsevier Venue |

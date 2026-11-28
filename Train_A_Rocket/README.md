@@ -76,6 +76,7 @@ From [`components_bom.csv`](file:///D:/Paper-orchestrate/projects/turbulence_sup
 
 ## 📡 Live Telemetry, Datasets & References
 - **Live Telemetry & Interactive Hub**: [Train_A_Rocket Hugging Face Space](https://huggingface.co/spaces/Abhi-nav-0007/Train_A_Rocket)
+- **Zenodo Open Dataset & Telemetry DOI**: [`10.5281/zenodo.24621665`](https://doi.org/10.5281/zenodo.24621665)
 - **Per-Cycle Telemetry Log (40,000+ Cycles)**: [`training/continuous_training_log.csv`](https://github.com/abhinavkumardixit-lgtm/A.L.C.O/blob/main/training/continuous_training_log.csv) (Cycle 41,353 | 40.63h | Fitness 210.709)
 - **Benchmark Datasets & References**:
   1. **NVIDIA HiLiftAeroML** ([huggingface.co/datasets/nvidia/HiLiftAeroML](https://huggingface.co/datasets/nvidia/HiLiftAeroML)) — NVIDIA Research, 2024 (1,800 WMLES snapshots).

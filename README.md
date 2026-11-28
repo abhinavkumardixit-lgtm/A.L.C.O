@@ -5,6 +5,7 @@
 **Affiliation**: Independent Researcher, Kanpur, India  
 **Paper**: [AeroGuard-Net Archival Paper (PDF)](paper/AeroGuard_Net_CVPR2025.pdf)  
 **Live Demo & Telemetry Hub**: [Hugging Face Train_A_Rocket Space](https://huggingface.co/spaces/Abhi-nav-0007/Train_A_Rocket)  
+**Zenodo Dataset & Telemetry DOI**: [`10.5281/zenodo.24621665`](https://doi.org/10.5281/zenodo.24621665)  
 **Live Telemetry Milestone**: **40,000+ Cycles** (`41,353` cycles | `40.63 h` elapsed | Pareto Fitness `210.709`) — [continuous_training_log.csv](training/continuous_training_log.csv) | [training_status.json](training/training_status.json)
 
 ---

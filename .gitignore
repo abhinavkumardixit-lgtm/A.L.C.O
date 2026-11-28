@@ -11,3 +11,5 @@ venv/
 Thumbs.db
 *.log
 stop_training.flag
+
+zenodo/
