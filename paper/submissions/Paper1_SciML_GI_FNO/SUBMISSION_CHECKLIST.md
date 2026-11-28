@@ -6,8 +6,8 @@
 ---
 
 ## 1. Where to Submit
-- **Primary**: **IEEE Transactions on Neural Networks and Learning Systems (IEEE TNNLS)** via [IEEE Author Portal](https://ieee.atyponrex.com/journal/tnnls-ieee) (choose *Subscription / Traditional* for \$0 APC).
-- **Fastest Alternative**: **IEEE Access** via [IEEE Author Portal](https://ieee.atyponrex.com/journal/access-ieee).
+- **Primary**: **IEEE Journal on Multiscale and Multiphysics Computational Techniques (IEEE JMMCT)** via [IEEE Author Portal](https://mc.manuscriptcentral.com/jmmct-ieee) *(16-week turnaround, Hybrid / \$0 Subscription option)*.
+- **Alternative**: **IEEE Transactions on Neural Networks and Learning Systems (IEEE TNNLS)** via [IEEE Author Portal](https://ieee.atyponrex.com/journal/tnnls-ieee).
 
 ---
 
@@ -40,7 +40,7 @@ Fourier neural operator, scientific machine learning, surrogate modeling, comput
 ```text
 Dear Editor-in-Chief and Associate Editors,
 
-Please consider our manuscript titled "Multi-Regime Neural Operator Surrogates for High-Lift and Separated Aerodynamic Flows" for publication in IEEE Transactions on Neural Networks and Learning Systems.
+Please consider our manuscript titled "Multi-Regime Neural Operator Surrogates for High-Lift and Separated Aerodynamic Flows" for publication in the IEEE Journal on Multiscale and Multiphysics Computational Techniques (IEEE JMMCT).
 
 Standard Fourier Neural Operators (FNOs) assume flat Euclidean domains and suffer from spectral ringing on curved, multi-element aerodynamic surfaces. In this work, we introduce the Geometry-Informed Fourier Neural Operator (GI-FNO), embedding Riemannian metric tensors and Laplace-Beltrami curvature invariants into spectral convolution layers. We validate GI-FNO across 1,800 Wall-Modelled Large Eddy Simulation (WMLES) snapshots from NVIDIA HiLiftAeroML (180 CRM-HL geometries) and physical wind-tunnel measurements from the NASA Glenn NPARC RAE 2822 archive (Case 6), achieving 1.24% surface Cp error, 0.88% CL error, and >15,000x speedup over WMLES, with a distilled 0.42M INT8 edge policy executing in 0.58 ms.
 
