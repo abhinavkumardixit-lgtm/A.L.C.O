@@ -4,7 +4,8 @@
 **Author**: **Abhinav Kumar Dixit**  
 **Affiliation**: Independent Researcher, Kanpur, India  
 **Paper**: [AeroGuard-Net Archival Paper (PDF)](paper/AeroGuard_Net_CVPR2025.pdf)  
-**Live Demo Space**: [Hugging Face Train_A_Rocket Space](https://huggingface.co/spaces/Abhi-nav-0007/Train_A_Rocket)
+**Live Demo & Telemetry Hub**: [Hugging Face Train_A_Rocket Space](https://huggingface.co/spaces/Abhi-nav-0007/Train_A_Rocket)  
+**Live Telemetry Milestone**: **40,000+ Cycles** (`41,353` cycles | `40.63 h` elapsed | Pareto Fitness `210.709`) — [continuous_training_log.csv](training/continuous_training_log.csv) | [training_status.json](training/training_status.json)
 
 ---
 
@@ -154,6 +155,39 @@ python paper/build_all_pristine_figures.py
 python paper/generate_pdf.py
 python paper/verify_pdf_layout.py
 ```
+
+---
+
+## 📡 Live Telemetry, Datasets & References
+
+### Live Co-Design Telemetry (40,000+ Cycles)
+- **Interactive Telemetry & 3D CAD Hub**: [https://huggingface.co/spaces/Abhi-nav-0007/Train_A_Rocket](https://huggingface.co/spaces/Abhi-nav-0007/Train_A_Rocket)
+- **Per-Cycle Telemetry Log (40k+ Cycles)**: [training/continuous_training_log.csv](training/continuous_training_log.csv) (latest auto-update milestone: **Cycle 41,353**, **40.63 h**, **Fitness 210.709**; local daemon snapshot: Cycle 38,041 / 37.59 h in [training/training_status.json](training/training_status.json))
+- **Source Repository**: [https://github.com/abhinavkumardixit-lgtm/A.L.C.O](https://github.com/abhinavkumardixit-lgtm/A.L.C.O)
+
+### Benchmark Datasets & Authoritative References
+| Dataset / Benchmark | Local Path / Link | Reference |
+| :--- | :--- | :--- |
+| **NVIDIA HiLiftAeroML (CRM-HL WMLES)** | [huggingface.co/datasets/nvidia/HiLiftAeroML](https://huggingface.co/datasets/nvidia/HiLiftAeroML) · [data/huggingface_verified/](data/huggingface_verified/) | NVIDIA CAE ML Team, *HiLiftAeroML: A large-scale WMLES dataset for high-lift aerodynamic surrogate learning*, NVIDIA Research, 2024. |
+| **AeroGuard 12,000-Case Multi-Regime Dataset** | [simulation/aeroguard_multiregime_dataset.npz](simulation/aeroguard_multiregime_dataset.npz) · [multiregime_dataset_meta.json](simulation/multiregime_dataset_meta.json) | Dixit, A. K., *AeroGuard-Net 6-Regime Aerodynamic & Microburst Synthetic Corpus*, 2026. |
+| **NASA Glenn NPARC RAE 2822 (Case 6)** | [nasa_rae2822_case6_cp_exp.csv](data/experimental_benchmarks/nasa_rae2822_case6_cp_exp.csv) · [NASA GRC Archive](https://www.grc.nasa.gov/www/wind/valid/raetaf/raetaf01/raetaf01.html) | Cook, P. H., McDonald, M. A., & Firmin, M. C. P., *AGARD Report AR 138*, 1979; Slater, J. W., *NASA Glenn NPARC Validation Archive*, 2021. |
+| **NASA TP-2721 / TP-2973 2D-CD Vectoring Nozzle** | [NASA_TP_2721_2DCD_Nozzle_Performance.pdf](data/experimental_benchmarks/NASA_TP_2721_2DCD_Nozzle_Performance.pdf) | Berrier, B. L. & Capone, F. J., *Static Internal Performance of Single-Expansion-Ramp and 2D-CD Nozzles with Thrust Vectoring*, NASA TP-2721, 1987. |
+| **NASA Langley Synthetic Jet Flowfield Database** | [NASA_Langley_Synthetic_Jet_Flowfield_Benchmark.pdf](data/experimental_benchmarks/NASA_Langley_Synthetic_Jet_Flowfield_Benchmark.pdf) | Cattafesta, L. N., Garg, D., Choudhari, M., & Li, F., *Synthetic Jet Flow Field Benchmark Database and Resonant Cavity Modeling*, NASA/TM-2004-213019, 2004. |
+| **NLR AFLoNext FP7 Separation Control** | [NLR_AFLoNext_Synthetic_Jet_Separation_Control.pdf](data/experimental_benchmarks/NLR_AFLoNext_Synthetic_Jet_Separation_Control.pdf) | AFLoNext Consortium, *Design and Experimental Characterization of Synthetic Jet Actuators for Active Flow Separation Control*, NLR-CR-2016-189, 2016. |
+| **EUCASS Micro-Turbojet SFC & Limits** | [EUCASS_Micro_Turbojet_SFC_Limits.pdf](data/experimental_benchmarks/EUCASS_Micro_Turbojet_SFC_Limits.pdf) | TU München, *Very Small Gas Turbine Jet Engines: Current Limits and Potential*, EUCASS Technical Proceedings, 2017. |
+| **Master Benchmark Catalog** | [experimental_benchmarks_catalog.json](data/experimental_benchmarks/experimental_benchmarks_catalog.json) | Consolidated metadata & error bounds across all experimental wind-tunnel and propulsion benchmarks. |
+
+### 📄 Research Papers & Target Publication Venues (Author: Abhinav Kumar Dixit)
+All 6 standalone submission folders (with `.tex`, `IEEEtran.cls`, figures, `.pdf`, and Overleaf `.zip`) are organized under [`paper/submissions/`](paper/submissions/).
+
+| Paper | Standalone Folder | Primary Target (IEEE / AIAA) | Springer / Elsevier Alternative | Preprint |
+| :--- | :--- | :--- | :--- | :--- |
+| **Paper 1: Multi-Regime GI-FNO** | [Paper1_SciML_GI_FNO](paper/submissions/Paper1_SciML_GI_FNO/) | **IEEE TNNLS** / **IEEE Access** / **AIAA Aviation** | **Neural Computing & Applications** (Springer) · **JCP / CMAME** (Elsevier) | `arXiv:cs.LG` |
+| **Paper 2: Closed-Loop AFC & Stall** | [Paper2_AFC_Control](paper/submissions/Paper2_AFC_Control/) | **IEEE TCST** / **IEEE L-CSS** / **AIAA JGCD** | **CEAS Aeronautical Journal** (Springer) · **Aerospace Sci. & Tech.** (Elsevier) | `arXiv:eess.SY` |
+| **Paper 3: Pareto Stealth Co-Design** | [Paper3_Pareto_CoDesign](paper/submissions/Paper3_Pareto_CoDesign/) | **IEEE TAES** / **IEEE Aerospace Conf.** / **AIAA SciTech** | **Structural & Multidisciplinary Optimization** (Springer) | `arXiv:cs.CE` |
+| **Paper 4: INT8 Edge Silicon & ZVS** | [Paper4_Edge_Silicon](paper/submissions/Paper4_Edge_Silicon/) | **IEEE TVLSI** / **IEEE TCAD** / **IEEE Access** | **Integration, the VLSI Journal** (Elsevier) · **Analog IC & Signal Proc.** (Springer) | `arXiv:cs.AR` |
+| **Paper 5: 40k+ Drift Benchmarking** | [Paper5_Continuous_Benchmarking](paper/submissions/Paper5_Continuous_Benchmarking/) | **IEEE TEVC** / **NeurIPS Datasets & Benchmarks** | **SoftwareX / Data in Brief** (Elsevier) · **Automated Software Eng.** (Springer) | `arXiv:cs.LG` |
+| **Master Paper: AeroGuard-Net** | [Master_AeroGuard_Net](paper/submissions/Master_AeroGuard_Net/) | **IEEE A&E Systems Magazine** / **IEEE TechRxiv** | **J. Intelligent & Robotic Systems** (Springer) | `arXiv:cs.RO` |
 
 ---
 

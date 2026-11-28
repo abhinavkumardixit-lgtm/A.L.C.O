@@ -457,13 +457,29 @@
 
           <div class="download-box">
             <div>
-              <h4>📊 Evolution Telemetry (CSV)</h4>
-              <p>Parametric design vectors, L/D ratios, stall angles, and RCS scores across continuous co-design cycles.</p>
+              <h4>📊 Live Evolution Telemetry (CSV · 40,000+ Cycles)</h4>
+              <p>Parametric design vectors, L/D ratios, stall angles, and RCS scores across 41,353+ continuous co-design cycles (40.63h, Fitness 210.709).</p>
             </div>
             <a href="./data/continuous_training_log.csv" download class="download-action-btn">
               Download Continuous Log CSV
             </a>
           </div>
+        </div>
+
+        <h4 style="color:#fff; margin-top:2rem; font-size:1rem;">Live Telemetry, Datasets &amp; Authoritative References</h4>
+        <div class="citation-box" style="white-space:normal; line-height:1.6;">
+          <strong>Live Telemetry &amp; Source:</strong>
+          <a href="https://huggingface.co/spaces/Abhi-nav-0007/Train_A_Rocket" target="_blank" style="color:#00e5ff;">Hugging Face Live Hub</a> &bull;
+          <a href="https://github.com/abhinavkumardixit-lgtm/A.L.C.O/blob/main/training/continuous_training_log.csv" target="_blank" style="color:#00e5ff;">continuous_training_log.csv (41,353+ Cycles)</a> &bull;
+          <a href="https://github.com/abhinavkumardixit-lgtm/A.L.C.O/blob/main/training/training_status.json" target="_blank" style="color:#00e5ff;">training_status.json</a><br>
+          <strong>Datasets &amp; References:</strong><br>
+          [1] <a href="https://huggingface.co/datasets/nvidia/HiLiftAeroML" target="_blank" style="color:#00e676;">NVIDIA HiLiftAeroML</a> — NVIDIA Research (2024), 1,800 WMLES CRM-HL snapshots.<br>
+          [2] <a href="https://github.com/abhinavkumardixit-lgtm/A.L.C.O/blob/main/simulation/aeroguard_multiregime_dataset.npz" target="_blank" style="color:#00e676;">AeroGuard 12,000-Case Multi-Regime Corpus</a> — Dixit (2026), 6 flight &amp; microburst regimes.<br>
+          [3] <a href="https://www.grc.nasa.gov/www/wind/valid/raetaf/raetaf01/raetaf01.html" target="_blank" style="color:#00e676;">NASA Glenn RAE 2822 Case 6</a> — Cook et al., AGARD AR 138 (1979); Slater, NASA GRC (2021).<br>
+          [4] NASA TP-2721 2D-CD Vectoring Nozzle — Berrier &amp; Capone, NASA TP-2721 (1987).<br>
+          [5] NASA Langley SJA Flowfield Database — Cattafesta et al., NASA/TM-2004-213019 (2004).<br>
+          [6] NLR AFLoNext FP7 Separation Control — NLR-CR-2016-189 (2016).<br>
+          [7] EUCASS Micro-Turbojet SFC &amp; Limits — TU M&uuml;nchen, EUCASS Proceedings (2017).
         </div>
 
         <h4 style="color:#fff; margin-top:2rem; font-size:1rem;">Suggested Citation</h4>

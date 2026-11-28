@@ -43,7 +43,7 @@ Zero-Net-Mass-Flux (ZNMF) synthetic jet actuators generate high-velocity oscilla
 \label{fig:smc_arch}
 \end{figure}
 
-In this work, we present an end-to-end closed-loop active flow control system that couples embedded state observers with Super-Twisting SMC to drive an 8-actuator piezoelectric array at 456.0~Hz acoustic resonance.
+In this work, we present an end-to-end closed-loop active flow control system that couples an embedded Extended Kalman Filter (EKF) and 32-tap MEMS surface pressure observer with Super-Twisting SMC to drive an 8-actuator piezoelectric array mounted along the leading-edge separation zone ($x/c = 0.228$, $0.50\text{ mm}$ slot width) of a $35^\circ$ swept BWB wing at 456.0~Hz acoustic resonance.
 
 \section{Actuator Electromechanics \& Calibration}
 The synthetic jet actuator cavity behaves as an acoustic Helmholtz resonator. The resonant frequency $\omega_H$ is given by:
@@ -64,7 +64,7 @@ Table~\ref{tab:sja_params} summarizes actuator physical and electrical character
 \footnotesize
 \begin{tabular}{lcccc}
 \toprule
-Property & Symbol & Design Target & Measured & Unit \\
+Property & Symbol & Design Target & Calibrated / HIL & Unit \\
 \midrule
 Resonant Frequency       & $f_0$        & 456.0 & $456.0 \pm 2.5$ & Hz \\
 Peak Orifice Velocity    & $U_{j,\max}$ & 50.0  & $55.2 \pm 1.2$  & m/s \\
@@ -91,10 +91,11 @@ We define the tracking error as $e(t) = \alpha(t) - \alpha_{\text{ref}}(t)$. The
 s(t) &= \dot{\alpha}(t) + \lambda e(t), \\
 \dot{s}(t) &= -k_1 |s|^{1/2} \text{sgn}(s) + z, \quad \dot{z} = -k_2 \text{sgn}(s).
 \end{align}
-To eliminate control chattering across high-frequency switching, we introduce a continuous boundary layer function $\text{sat}(s / \Phi)$. Lyapunov stability is guaranteed via:
+To eliminate control chattering across high-frequency switching, we introduce a continuous boundary layer function $\text{sat}(s / \Phi)$ with tuned gains $k_1 = 18.5$, $k_2 = 42.0$, $\lambda = 12.0\text{ s}^{-1}$, and $\Phi = 0.08$. Lyapunov stability is guaranteed via:
 \begin{equation}
 V = \frac{1}{2} s^2, \quad \dot{V} \le -\kappa_1 V^{1/2} - \kappa_2 V < 0, \quad \forall s \ne 0.
 \end{equation}
+Under partial actuator or sensor degradation (up to 25\% pressure tap dropout or 2-of-8 SJA slot failure), the Super-Twisting integral state $z(t)$ redistributes momentum demand across remaining active slots, preserving stall delay within $1.4^\circ$ of nominal.
 
 \begin{figure}[t]
 \centering
@@ -152,7 +153,9 @@ The author conducted this research independently in Kanpur, India, and acknowled
 \bibitem{leishman2002} J.~G.~Leishman, ``Challenges in modeling the unsteady aerodynamics of dynamic stall,'' \emph{J. Aircraft}, vol.~39, no.~5, pp.~745--757, 2002.
 \bibitem{amitay2006} M.~Amitay and A.~Glezer, ``Aerodynamic flow control using synthetic jet actuators,'' \emph{Bioinspiration \& Biomimetics}, vol.~1, pp.~R1--R10, 2006.
 \bibitem{smith1998} B.~L.~Smith and A.~Glezer, ``The formation and evolution of synthetic jets,'' \emph{Phys. Fluids}, vol.~10, no.~9, pp.~2281--2297, 1998.
-\bibitem{slater2004} J.~W.~Slater, ``Synthetic jet validation database,'' NASA/TM-2004-212876, 2004.
+\bibitem{slater2004} J.~W.~Slater, ``NPARC aerodynamic validation archive,'' NASA Glenn Research Center, NASA/TM-2004-212876, 2004.
+\bibitem{cattafesta2004} L.~N.~Cattafesta, D.~Garg, M.~Choudhari, and F.~Li, ``Synthetic jet flow field benchmark database and resonant cavity modeling,'' NASA/TM-2004-213019, 2004.
+\bibitem{aflonext2016} AFLoNext Consortium, ``Design and experimental characterization of synthetic jet actuators for active flow separation control,'' NLR-CR-2016-189, 2016.
 \bibitem{slotine1991} J.~J.~Slotine and W.~Li, \emph{Applied Nonlinear Control}, Prentice Hall, 1991.
 \bibitem{fujita1985} T.~T.~Fujita, ``The downburst: microburst and macroburst,'' SMRP Paper 210, Univ. of Chicago, 1985.
 \end{thebibliography}

@@ -18,7 +18,7 @@ short_description: AeroGuard 3D CAD, ASIC Silicon & Flight Simulator (2026)
 
 ## 🚀 Key Innovations & Latest Verified Benchmarks
 
-### 1. Autonomous 50-Hour Co-Design Daemon (20,475+ Cycles)
+### 1. Autonomous 50-Hour Co-Design Daemon (40,000+ Cycles | 41,353 Cycles / 40.63h | Fitness 210.709)
 - **Dynamic Stall Suppression**: Extends critical stall angle of attack ($\alpha_{\text{crit}}$) from baseline $16.50^\circ$ out to **$35.47^\circ$** (+115% stall envelope expansion).
 - **Cruise Aerodynamic Efficiency**: Lift-to-Drag ratio reaches **$L/D = 13.64$** (+39.2% increase over baseline 9.80).
 - **Active Gust Alleviation**: Mitigates peak vertical g-load excursions during FAA -8.5 m/s microbursts by **$78.0\%$**.
@@ -71,3 +71,17 @@ From [`components_bom.csv`](file:///D:/Paper-orchestrate/projects/turbulence_sup
   - `AeroGuard_Stealth_HeavyLift_UAV_Master.stl` (Master CAD assembly)
 - `ic_design/`: Synthesizable Verilog RTL (`.v`), SPICE netlists (`.cir`), and silicon specs (`.json`).
 - `cad/aerocircuit_mcp_server.py`: Model Context Protocol (MCP) EDA & avionics server.
+
+---
+
+## 📡 Live Telemetry, Datasets & References
+- **Live Telemetry & Interactive Hub**: [Train_A_Rocket Hugging Face Space](https://huggingface.co/spaces/Abhi-nav-0007/Train_A_Rocket)
+- **Per-Cycle Telemetry Log (40,000+ Cycles)**: [`training/continuous_training_log.csv`](https://github.com/abhinavkumardixit-lgtm/A.L.C.O/blob/main/training/continuous_training_log.csv) (Cycle 41,353 | 40.63h | Fitness 210.709)
+- **Benchmark Datasets & References**:
+  1. **NVIDIA HiLiftAeroML** ([huggingface.co/datasets/nvidia/HiLiftAeroML](https://huggingface.co/datasets/nvidia/HiLiftAeroML)) — NVIDIA Research, 2024 (1,800 WMLES snapshots).
+  2. **AeroGuard 12,000-Case Multi-Regime Corpus** ([`simulation/aeroguard_multiregime_dataset.npz`](https://github.com/abhinavkumardixit-lgtm/A.L.C.O/blob/main/simulation/aeroguard_multiregime_dataset.npz)) — Dixit, 2026.
+  3. **NASA Glenn NPARC RAE 2822 Case 6** ([NASA GRC Validation Archive](https://www.grc.nasa.gov/www/wind/valid/raetaf/raetaf01/raetaf01.html)) — Cook et al., AGARD AR 138 (1979); Slater (2021).
+  4. **NASA TP-2721 / TP-2973 2D-CD Vectoring Nozzle** — Berrier & Capone, NASA TP-2721 (1987).
+  5. **NASA Langley Synthetic Jet Flowfield Database** — Cattafesta et al., NASA/TM-2004-213019 (2004).
+  6. **NLR AFLoNext FP7 Separation Control** — AFLoNext Consortium, NLR-CR-2016-189 (2016).
+  7. **EUCASS Micro-Turbojet SFC & Limits** — TU München, EUCASS Technical Proceedings (2017).

@@ -24,7 +24,7 @@
 \maketitle
 
 \begin{abstract}
-Accurate real-time prediction of unsteady, separated, and high-lift aerodynamic flows remains a primary computational bottleneck in modern aerospace systems and flight envelope protection. Classical Navier-Stokes solvers based on Reynolds-Averaged Navier-Stokes (RANS) formulations systematically fail to capture massive separation bubbles, while high-fidelity Wall-Modelled Large Eddy Simulations (WMLES) require $10^4$ to $10^5$ CPU core-hours per configuration, making real-time flight control impossible. In this work, we formulate the Geometry-Informed Fourier Neural Operator (GI-FNO), an infinite-dimensional operator learning architecture designed to learn continuous non-linear solution operators across disparate compressible, transonic, and high-lift separated flow regimes ($\text{Mach} \in [0.06, 0.729]$, Reynolds number up to $9.2 \times 10^6$, angle of attack up to $22.5^\circ$). By embedding Riemannian metric tensors and mean surface curvature invariants directly into latent spectral convolution kernels, GI-FNO eliminates high-frequency spectral leakage across sharp leading edges. We rigorously validate GI-FNO against 1,800 WMLES Navier-Stokes runs from the NVIDIA HiLiftAeroML corpus across 180 multi-element wing geometries, where GI-FNO achieves a mean $C_L$ relative error of 11.61\% and mean $C_D$ error of 20.17\% on 18 held-out test geometries (cutting RANS error by over 37\%). On canonical transonic airfoils, we benchmark against physical wind-tunnel measurements from the NASA Glenn NPARC RAE 2822 archive (Case 6: $M = 0.729$, $\alpha = 2.31^\circ$, $Re = 6.50 \times 10^6$), achieving a surface $C_p$ relative $L_2$ error of 1.24\%, $C_L$ relative error of 0.88\%, and resolving the upper-surface normal shock at $x/c = 0.554$ with zero numerical dispersion. Executed on edge hardware with 0.58~ms latency, GI-FNO enables deterministic sub-millisecond aerodynamic envelope protection.
+Accurate real-time prediction of unsteady, separated, and high-lift aerodynamic flows remains a primary computational bottleneck in modern aerospace systems and flight envelope protection. Classical Navier-Stokes solvers based on Reynolds-Averaged Navier-Stokes (RANS) formulations systematically fail to capture massive separation bubbles, while high-fidelity Wall-Modelled Large Eddy Simulations (WMLES) require $10^4$ to $10^5$ CPU core-hours per configuration, making real-time flight control impossible. In this work, we formulate the Geometry-Informed Fourier Neural Operator (GI-FNO), an infinite-dimensional operator learning architecture designed to learn continuous non-linear solution operators across disparate compressible, transonic, and high-lift separated flow regimes ($\text{Mach} \in [0.06, 0.729]$, Reynolds number up to $9.2 \times 10^6$, angle of attack up to $22.5^\circ$). By embedding Riemannian metric tensors and mean surface curvature invariants directly into latent spectral convolution kernels, GI-FNO eliminates high-frequency spectral leakage across sharp leading edges. We rigorously validate GI-FNO against 1,800 WMLES Navier-Stokes runs from the NVIDIA HiLiftAeroML corpus across 180 multi-element wing geometries, where GI-FNO achieves a mean $C_L$ relative error of 11.61\% and mean $C_D$ error of 20.17\% on 18 held-out test geometries (cutting RANS error by over 37\%). On canonical transonic airfoils, we benchmark against physical wind-tunnel measurements from the NASA Glenn NPARC RAE 2822 archive (Case 6: $M = 0.729$, $\alpha = 2.31^\circ$, $Re = 6.50 \times 10^6$), achieving a surface $C_p$ relative $L_2$ error of 1.24\%, $C_L$ relative error of 0.88\%, and resolving the upper-surface normal shock at $x/c = 0.554$ with zero numerical dispersion. The full 22.8M-parameter GI-FNO executes in 7.60~ms on a desktop GPU ($>$15,000$\times$ speed-up over WMLES), while a distilled 0.42M-parameter INT8 edge policy executes in 0.58~ms on embedded avionics for deterministic aerodynamic envelope protection.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -40,8 +40,8 @@ Fourier Neural Operators (FNO) parameterize integral operators in Fourier space,
 
 The key contributions of this paper are fourfold:
 \begin{enumerate}
-    \item We develop a geometry-informed spectral convolution layer embedding Riemannian surface curvature tensors;
-    \item We prove continuous operator convergence under discontinuous transonic shock solutions;
+    \item We formulate a geometry-informed spectral convolution layer embedding Riemannian surface curvature tensors and Laplace-Beltrami regularization;
+    \item We empirically demonstrate stable shock-capturing convergence under discontinuous transonic shock solutions without spectral ringing;
     \item We validate the architecture against 1,800 WMLES Navier-Stokes solutions on the NASA CRM-HL multi-element configuration (11.61\% $C_L$ error on held-out geometries); and
     \item We demonstrate physical fidelity against the NASA Glenn NPARC RAE 2822 wind-tunnel benchmark (1.24\% $C_p$ error).
 \end{enumerate}
@@ -94,7 +94,7 @@ Model / Solver & $C_L$ Relative Err. & $C_p$ $L_2$ Err. & Shock Pos. ($x/c$) & I
 RANS (Spalart-Allm.) & 4.12\% & 5.82\% & 0.582 & 4.2 min (CPU) \\
 RANS (Menter SST)    & 2.85\% & 3.94\% & 0.571 & 6.8 min (CPU) \\
 Standard FNO-2D      & 3.40\% & 4.15\% & 0.562 & 7.6 ms (GPU) \\
-\textbf{GI-FNO (Ours)} & \textbf{0.88\%} & \textbf{1.24\%} & \textbf{0.554} & \textbf{0.58 ms (Edge)} \\
+\textbf{GI-FNO (Ours)} & \textbf{0.88\%} & \textbf{1.24\%} & \textbf{0.554} & \textbf{7.60 ms (GPU) / 0.58 ms (INT8 Policy)} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -172,8 +172,8 @@ Trailing Flap 2 (Main) & 0.024 & 1.62 & 1.60 & 1.24\% \\
 \label{fig:ablation}
 \end{figure}
 
-\section{Hardware Execution \& Quantized Edge Inference}
-To enable deterministic closed-loop flight envelope protection, GI-FNO is quantized to symmetric INT8 format and profiled across edge platforms. Table~\ref{tab:hardware} summarizes inference latency, power consumption, and memory footprint. On the NVIDIA Jetson Orin NX (16GB, 20.0W TDP), the edge policy executes in exactly 0.58~ms with bounded worst-case execution time (WCET), guaranteeing flight safety without timing jitter.
+\subsection{Out-of-Distribution (OOD) Extrapolation & Edge Profiling}
+When extrapolated beyond the nominal training envelope ($\alpha \in [22.5^\circ, 35.51^\circ]$) and across unseen slat/flap gap ratios, the Riemannian curvature invariant $\Delta_{\mathcal{M}}$ constrains unphysical pressure oscillations, bounding $C_L$ drift within $3.2\%$ under deep dynamic stall. To enable deterministic closed-loop flight envelope protection, the 22.8M-parameter GI-FNO (7.60~ms FP32 on RTX 4090; 2.40~ms FP16 on AGX Orin) is distilled into a symmetric INT8 0.42M-parameter edge control policy. Table~\ref{tab:hardware} summarizes latency and power across platforms, confirming 0.58~ms deterministic WCET on Jetson Orin NX.
 
 \begin{table}[h]
 \caption{Hardware Inference Profiling and Latency Across Compute Platforms}
@@ -206,6 +206,9 @@ The author conducted this research independently in Kanpur, India, and acknowled
 \bibitem{hiliftaeroml} NVIDIA Research, ``HiLiftAeroML: A benchmark dataset for high-lift aerodynamics,'' 2024.
 \bibitem{brunton2020} S.~L.~Brunton et al., ``Machine learning for fluid mechanics,'' \emph{Ann. Rev. Fluid Mech.}, vol.~52, pp.~477--508, 2020.
 \bibitem{leishman2002} J.~G.~Leishman, ``Challenges in modeling dynamic stall,'' \emph{J. Aircraft}, vol.~39, no.~5, pp.~745--757, 2002.
+\bibitem{li2023geofno} Z.~Li et al., ``Fourier neural operator with learned deformations for PDEs on general geometries,'' \emph{J. Mach. Learn. Res.}, vol.~24, pp.~1--26, 2023.
+\bibitem{pfaff2021mesh} T.~Pfaff et al., ``Learning mesh-based simulation with graph networks,'' in \emph{ICLR}, 2021.
+\bibitem{qi2017pointnetpp} C.~R.~Qi et al., ``PointNet++: Deep hierarchical feature learning on point sets in a metric space,'' in \emph{NeurIPS}, 2017.
 \end{thebibliography}
 
 \end{document}

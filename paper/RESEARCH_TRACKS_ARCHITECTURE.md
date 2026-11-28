@@ -2,7 +2,8 @@
 
 **Author**: Abhinav Kumar Dixit, Independent Researcher, Kanpur, India  
 **Repository**: `https://github.com/abhinavkumardixit-lgtm/A.L.C.O.git`  
-**Telemetry Milestone**: 15.23 Hours Elapsed | 26,101+ Optimization Cycles | Pareto Fitness: 210.434  
+**Telemetry Milestone**: 40.63 Hours Elapsed | 41,353+ Optimization Cycles (40k+ Live Telemetry) | Pareto Fitness: 210.709  
+**Live Telemetry Links**: [`training/continuous_training_log.csv`](../training/continuous_training_log.csv) | [`training/training_status.json`](../training/training_status.json) | [Hugging Face Live Hub](https://huggingface.co/spaces/Abhi-nav-0007/Train_A_Rocket)
 
 ---
 
@@ -13,7 +14,7 @@ To satisfy the highest standards of peer review, the multi-physics AeroGuard pro
 ```
                                     ┌─────────────────────────────────────────────────────────────┐
                                     │                     AEROGUARD PROGRAM                       │
-                                    │     26,101+ Co-Design Cycles | 11 Experimental Benchmarks   │
+                                    │ 41,353+ Co-Design Cycles (40.63h) | 11 Physical Benchmarks  │
                                     └──────────────────────────────┬──────────────────────────────┘
                                                                    │
          ┌─────────────────────────┬───────────────────────────────┼──────────────────────────────┬─────────────────────────┐
@@ -97,8 +98,8 @@ Subject to geometric closure and flight envelope constraints:
 * Serpentine S-duct intake total pressure recovery: $P_{t,2} / P_{t,0} \ge 0.980$.
 * 2D-CD vectoring nozzle internal thrust ratio: $F_g / F_i \ge 0.980$ across $NPR = 1.5 - 10.0$ (calibrated against **NASA TP-2721**).
 
-### Pareto Progression Metrics (26,101+ Cycles)
-* **Composite Fitness**: Rose from **$185.230 \to 210.434$** ($+13.61\%$ global gain).
+### Pareto Progression Metrics (40,000+ Cycles | Latest: 41,353 Cycles, 40.63h)
+* **Composite Fitness**: Rose from **$185.230 \to 210.709$** ($+13.76\%$ global gain; 40k+ cycle campaign).
 * **Cruise $L/D$**: Increased from **$10.680 \to 13.963$** ($+30.74\%$ aerodynamic efficiency).
 * **Planform RCS Score**: **$99.16 / 100$** via persistent $35.00^\circ$ facet lock.
 * **Thermal IR Attenuation**: **$23.30\text{ dB}$** ($+4.40\text{ dB}$ exhaust signature suppression over $18.90\text{ dB}$ baseline) via bypass slot cold-air injection.
@@ -170,3 +171,16 @@ The continuous integration engine anchors model performance across 11 physical d
 | **Track 3** | Struct. Multidiscip. Optim. (SMO) | Q2 2027 | `training/continuous_co_design_daemon.py`<br>`cad/stl_models/champion_evolved_uav.stl` |
 | **Track 4** | IEEE TCAD / MLSys | Q3 2027 | `ic_design/aeroguard_ic_architecture_spec.json`<br>`ic_design/aeropzt_highvoltage_stage.cir` |
 | **Track 5** | NeurIPS Benchmarks / ACM TOMACS | Q3 2027 | `data/experimental_benchmarks/experimental_benchmarks_catalog.json`<br>`training/continuous_training_log.csv` |
+
+---
+
+## Live Telemetry & Dataset References
+- **Live Co-Design Telemetry**: [`training/continuous_training_log.csv`](../training/continuous_training_log.csv) (41,353+ cycles, 40.63h) · [`training/training_status.json`](../training/training_status.json) · [Train_A_Rocket Space](https://huggingface.co/spaces/Abhi-nav-0007/Train_A_Rocket)
+- **Datasets & Citations**:
+  - **NVIDIA HiLiftAeroML**: [`huggingface.co/datasets/nvidia/HiLiftAeroML`](https://huggingface.co/datasets/nvidia/HiLiftAeroML) (NVIDIA Research, 2024)
+  - **AeroGuard 12,000-Case Multi-Regime Corpus**: [`simulation/aeroguard_multiregime_dataset.npz`](../simulation/aeroguard_multiregime_dataset.npz) (Dixit, 2026)
+  - **NASA Glenn RAE 2822 Case 6**: [`data/experimental_benchmarks/nasa_rae2822_case6_cp_exp.csv`](../data/experimental_benchmarks/nasa_rae2822_case6_cp_exp.csv) (Cook et al., AGARD AR 138, 1979; Slater, NASA GRC, 2021)
+  - **NASA TP-2721 2D-CD Nozzle**: [`data/experimental_benchmarks/NASA_TP_2721_2DCD_Nozzle_Performance.pdf`](../data/experimental_benchmarks/NASA_TP_2721_2DCD_Nozzle_Performance.pdf) (Berrier & Capone, NASA TP-2721, 1987)
+  - **NASA Langley SJA Database**: [`data/experimental_benchmarks/NASA_Langley_Synthetic_Jet_Flowfield_Benchmark.pdf`](../data/experimental_benchmarks/NASA_Langley_Synthetic_Jet_Flowfield_Benchmark.pdf) (Cattafesta et al., NASA/TM-2004-213019, 2004)
+  - **NLR AFLoNext SJA Control**: [`data/experimental_benchmarks/NLR_AFLoNext_Synthetic_Jet_Separation_Control.pdf`](../data/experimental_benchmarks/NLR_AFLoNext_Synthetic_Jet_Separation_Control.pdf) (AFLoNext Consortium, NLR-CR-2016-189, 2016)
+  - **EUCASS Micro-Turbojet SFC**: [`data/experimental_benchmarks/EUCASS_Micro_Turbojet_SFC_Limits.pdf`](../data/experimental_benchmarks/EUCASS_Micro_Turbojet_SFC_Limits.pdf) (TU München, EUCASS, 2017)
