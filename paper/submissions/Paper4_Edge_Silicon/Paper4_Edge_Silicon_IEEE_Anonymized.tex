@@ -44,6 +44,7 @@ Executing scientific neural operators at this cadence poses two severe hardware 
 \label{tab:hardware_comp}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lccccc}
 \toprule
 Platform & Architecture & Precision & Latency & Power & Energy/Inf. \\
@@ -55,6 +56,7 @@ STM32H753 MCU     & ARM Cortex-M7   & FP32 & 14.80 ms & 0.45 W & 6.66 mJ \\
 Systolic ASIC     & Custom 28nm RTL & INT8 & \textbf{0.082 ms} & \textbf{1.25 W} & \textbf{102.5} $\mu$\textbf{J} \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \section{Quantization \& Hessian Curvature Analysis}
@@ -73,6 +75,7 @@ where $\mathbf{H} = \nabla^2 \mathcal{L}$ is the layer-wise Hessian matrix. As s
 \label{tab:hessian}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lcccc}
 \toprule
 Layer Name & Weight Tensor Shape & $\lambda_{\max}(\mathbf{H})$ & Condition Number & L2 Err. \\
@@ -83,6 +86,7 @@ Spectral Conv 2 ($k=32$)& $[64, 64, 32, 2]$  & 3.8  & $5.2 \times 10^1$ & 0.04\%
 Output Projection Layer & $[1, 64, 1, 1]$    & 2.1  & $3.1 \times 10^1$ & 0.02\% \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \begin{figure}[t]
@@ -110,6 +114,7 @@ The resonant tank recycles 94.2\% of the reactive charge during each half-cycle.
 \label{tab:driver_perf}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lccc}
 \toprule
 Parameter & Target & SPICE / HIL & Unit \\
@@ -123,6 +128,7 @@ Peak Dynamic Burst Power    & $\le 15.0$ & \textbf{14.8 W} & Emergency \\
 Overcurrent Trip Threshold  & $< 50$ & \textbf{38 ns} & GaN Fast Trip \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \begin{figure}[t]
@@ -140,6 +146,7 @@ The complete system was evaluated on a real-time Hardware-in-the-Loop (HIL) test
 \label{tab:hil_val}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lcccc}
 \toprule
 Flight Phase & FP32 Latency & INT8 Latency & Angle Error & Status \\
@@ -151,6 +158,7 @@ Incipient Dynamic Stall       & 7.60 ms & 0.58 ms & $0.62^\circ$ & DELAYED \\
 Deep Envelope ($35.51^\circ$ AoA)& 7.60 ms & 0.58 ms & $0.88^\circ$ & CONTROLLED \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \section{Conclusion}
@@ -160,11 +168,11 @@ We developed an ultra-low-latency edge AI and resonant actuator driver suite for
 \bibitem{jacob2018quantization} B.~Jacob et al., ``Quantization and training of neural networks for efficient integer-arithmetic-only inference,'' in \emph{CVPR}, 2018.
 \bibitem{jouppi2017datacenter} N.~P.~Jouppi et al., ``In-datacenter performance analysis of a tensor processing unit,'' in \emph{ISCA}, 2017.
 \bibitem{erickson2007fundamentals} R.~W.~Erickson and D.~Maksimovic, \emph{Fundamentals of Power Electronics}, Springer, 2007.
-\bibitem{dixit2025aeroguard} Anonymous Authors, `Sub-millisecond neural surrogates for active flow control,'' 2025.
+\bibitem{dixit2025aeroguard} Anonymous Authors, `Sub-millisecond neural surrogates for active flow control,\'\' 2025.
 \bibitem{chen2016eyeriss} Y.~H.~Chen et al., ``Eyeriss: An energy-efficient reconfigurable accelerator for deep convolutional neural networks,'' \emph{IEEE J. Solid-State Circuits}, vol.~52, no.~1, pp.~127--138, 2016.
 \bibitem{cattafesta2011actuators} L.~N.~Cattafesta and M.~Sheplak, ``Actuators for active flow control,'' \emph{Ann. Rev. Fluid Mech.}, vol.~43, pp.~247--272, 2011.
 \bibitem{dong2019hawq} Z.~Dong et al., ``HAWQ: Hessian aware quantization of neural networks with mixed-precision,'' in \emph{ICCV}, 2019.
-\bibitem{dixit2026zenodo} Anonymous Authors, `Supplementary multi-physics co-design telemetry, datasets, CAD, and silicon artifacts,'' 2026 (DOI withheld for double-blind review).
+\bibitem{dixit2026zenodo} Anonymous Authors, `Supplementary multi-physics co-design telemetry, datasets, CAD, and silicon artifacts,\'\' 2026 (DOI withheld for double-blind review).
 \end{thebibliography}
 
 \end{document}

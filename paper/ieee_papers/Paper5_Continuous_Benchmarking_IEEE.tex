@@ -51,6 +51,7 @@ The validation corpus integrates 11 physical datasets spanning canonical experim
 \label{tab:benchmarks}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{llcc}
 \toprule
 Dataset Name & Regime / Physics & Source Facility & Certified Bound \\
@@ -68,6 +69,7 @@ Dataset Name & Regime / Physics & Source Facility & Certified Bound \\
 11. Composite 50h Co-Design& Coupled Aero-Stealth-Thermal & Pareto MDO   & $S(P) \ge 210.0$ \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \section{Non-Regression Gating Logic \& Computational Overhead}
@@ -112,6 +114,7 @@ Table~\ref{tab:ewc_ablation} compares validation strategies across sequential da
 \label{tab:ewc_ablation}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lcccc}
 \toprule
 Strategy & RAE 2822 Err. & HiLift Err. & SJA Err. & Forgetting? \\
@@ -122,6 +125,7 @@ Replay Buffer (10\%)     & 1.65\%        & 13.20\% & 1.92\% & Marginal \\
 \textbf{EWC + Gating (Ours)} & \textbf{1.24\%} & \textbf{11.61\%} & \textbf{0.71\%} & \textbf{ZERO ($\le 2.1\%$)} \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \begin{figure}[t]

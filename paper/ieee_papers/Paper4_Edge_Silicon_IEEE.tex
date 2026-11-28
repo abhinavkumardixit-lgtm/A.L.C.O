@@ -45,6 +45,7 @@ Executing scientific neural operators at this cadence poses two severe hardware 
 \label{tab:hardware_comp}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lccccc}
 \toprule
 Platform & Architecture & Precision & Latency & Power & Energy/Inf. \\
@@ -56,6 +57,7 @@ STM32H753 MCU     & ARM Cortex-M7   & FP32 & 14.80 ms & 0.45 W & 6.66 mJ \\
 Systolic ASIC     & Custom 28nm RTL & INT8 & \textbf{0.082 ms} & \textbf{1.25 W} & \textbf{102.5} $\mu$\textbf{J} \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \section{Quantization \& Hessian Curvature Analysis}
@@ -74,6 +76,7 @@ where $\mathbf{H} = \nabla^2 \mathcal{L}$ is the layer-wise Hessian matrix. As s
 \label{tab:hessian}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lcccc}
 \toprule
 Layer Name & Weight Tensor Shape & $\lambda_{\max}(\mathbf{H})$ & Condition Number & L2 Err. \\
@@ -84,6 +87,7 @@ Spectral Conv 2 ($k=32$)& $[64, 64, 32, 2]$  & 3.8  & $5.2 \times 10^1$ & 0.04\%
 Output Projection Layer & $[1, 64, 1, 1]$    & 2.1  & $3.1 \times 10^1$ & 0.02\% \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \begin{figure}[t]
@@ -111,6 +115,7 @@ The resonant tank recycles 94.2\% of the reactive charge during each half-cycle.
 \label{tab:driver_perf}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lccc}
 \toprule
 Parameter & Target & SPICE / HIL & Unit \\
@@ -124,6 +129,7 @@ Peak Dynamic Burst Power    & $\le 15.0$ & \textbf{14.8 W} & Emergency \\
 Overcurrent Trip Threshold  & $< 50$ & \textbf{38 ns} & GaN Fast Trip \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \begin{figure}[t]
@@ -141,6 +147,7 @@ The complete system was evaluated on a real-time Hardware-in-the-Loop (HIL) test
 \label{tab:hil_val}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lcccc}
 \toprule
 Flight Phase & FP32 Latency & INT8 Latency & Angle Error & Status \\
@@ -152,6 +159,7 @@ Incipient Dynamic Stall       & 7.60 ms & 0.58 ms & $0.62^\circ$ & DELAYED \\
 Deep Envelope ($35.51^\circ$ AoA)& 7.60 ms & 0.58 ms & $0.88^\circ$ & CONTROLLED \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \section{Conclusion}

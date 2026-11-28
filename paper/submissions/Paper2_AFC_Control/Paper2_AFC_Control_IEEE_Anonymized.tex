@@ -61,6 +61,7 @@ Table~\ref{tab:sja_params} summarizes actuator physical and electrical character
 \label{tab:sja_params}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lcccc}
 \toprule
 Property & Symbol & Design Target & Calibrated / HIL & Unit \\
@@ -75,6 +76,7 @@ Peak Array Burst Power   & $P_{\text{peak}}$ & 15.0 & 14.8            & W \\
 Orifice Slot Width       & $d_{\text{slot}}$ & 0.50 & $0.50 \pm 0.02$ & mm \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \begin{figure}[t]
@@ -111,6 +113,7 @@ The closed-loop AFC policy was evaluated against the FAA Advisory Circular AC 12
 \label{tab:stall_ext}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lccc}
 \toprule
 Configuration & Critical Stall $\alpha_{\text{crit}}$ & Peak $C_L$ & Pitch Spike $\Delta C_m$ \\
@@ -120,6 +123,7 @@ Open-Loop SJA (50\% Duty) & $31.40^\circ$ & 2.48 & $-0.210$ \\
 \textbf{Closed-Loop SMC (Ours)} & \textbf{35.51$^\circ$} & \textbf{2.95} & \textbf{$-$0.042} \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \section{Hardware-in-the-Loop Implementation}
@@ -130,6 +134,7 @@ The policy was verified on an embedded testbed integrating a high-voltage Class-
 \label{tab:hil}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lcccc}
 \toprule
 Perturbation Tested & Operating Point & Phase Margin & Stability & Latency \\
@@ -140,6 +145,7 @@ Actuator Detuning     & $\pm 15$ Hz       & $62.1^\circ$ & Stable & 0.58 ms \\
 Sensor Telemetry Lag  & Up to 5.0 ms      & $58.4^\circ$ & Stable & 0.58 ms \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \section{Conclusion}
@@ -157,7 +163,7 @@ The authors acknowledge the NASA Langley SJA database and NLR AFLoNext consortiu
 \bibitem{aflonext2016} AFLoNext Consortium, ``Design and experimental characterization of synthetic jet actuators for active flow separation control,'' NLR-CR-2016-189, 2016.
 \bibitem{slotine1991} J.~J.~Slotine and W.~Li, \emph{Applied Nonlinear Control}, Prentice Hall, 1991.
 \bibitem{fujita1985} T.~T.~Fujita, ``The downburst: microburst and macroburst,'' SMRP Paper 210, Univ. of Chicago, 1985.
-\bibitem{dixit2026zenodo} Anonymous Authors, `Supplementary multi-physics co-design telemetry, datasets, CAD, and silicon artifacts,'' 2026 (DOI withheld for double-blind review).
+\bibitem{dixit2026zenodo} Anonymous Authors, `Supplementary multi-physics co-design telemetry, datasets, CAD, and silicon artifacts,\'\' 2026 (DOI withheld for double-blind review).
 \end{thebibliography}
 
 \end{document}

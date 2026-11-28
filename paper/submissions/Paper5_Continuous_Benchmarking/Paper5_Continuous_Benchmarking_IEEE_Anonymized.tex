@@ -50,6 +50,7 @@ The validation corpus integrates 11 physical datasets spanning canonical experim
 \label{tab:benchmarks}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{llcc}
 \toprule
 Dataset Name & Regime / Physics & Source Facility & Certified Bound \\
@@ -67,6 +68,7 @@ Dataset Name & Regime / Physics & Source Facility & Certified Bound \\
 11. Composite 50h Co-Design& Coupled Aero-Stealth-Thermal & Pareto MDO   & $S(P) \ge 210.0$ \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \section{Non-Regression Gating Logic \& Computational Overhead}
@@ -111,6 +113,7 @@ Table~\ref{tab:ewc_ablation} compares validation strategies across sequential da
 \label{tab:ewc_ablation}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lcccc}
 \toprule
 Strategy & RAE 2822 Err. & HiLift Err. & SJA Err. & Forgetting? \\
@@ -121,6 +124,7 @@ Replay Buffer (10\%)     & 1.65\%        & 13.20\% & 1.92\% & Marginal \\
 \textbf{EWC + Gating (Ours)} & \textbf{1.24\%} & \textbf{11.61\%} & \textbf{0.71\%} & \textbf{ZERO ($\le 2.1\%$)} \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \begin{figure}[t]
@@ -148,7 +152,7 @@ The automated continuous validation framework guarantees reproducible, drift-fre
 \bibitem{kirkpatrick2017overcoming} J.~Kirkpatrick et al., ``Overcoming catastrophic forgetting in neural networks,'' \emph{Proc. Natl. Acad. Sci.}, vol.~114, no.~13, pp.~3521--3526, 2017.
 \bibitem{zenke2017continual} F.~Zenke et al., ``Continual learning through synaptic intelligence,'' in \emph{ICML}, 2017.
 \bibitem{montgomery2009introduction} D.~C.~Montgomery, \emph{Introduction to Statistical Quality Control}, 6th ed., Wiley, 2009.
-\bibitem{dixit2025continuous} Anonymous Authors, `Drift-aware continuous validation in computational aerospace co-design,'' 2025 (links withheld for double-blind review).
+\bibitem{dixit2025continuous} Anonymous Authors, `Drift-aware continuous validation in computational aerospace co-design,\'\' 2025 (links withheld for double-blind review).
 \bibitem{hiliftaeroml2024} NVIDIA CAE ML Team, ``HiLiftAeroML: A large-scale WMLES dataset for high-lift aerodynamic surrogate learning,'' NVIDIA Research, 2024. \url{https://huggingface.co/datasets/nvidia/HiLiftAeroML}.
 \bibitem{cook1979rae2822} P.~H.~Cook, M.~A.~McDonald, and M.~C.~P.~Firmin, ``Aerofoil RAE 2822 - Pressure distributions, and boundary layer and wake measurements,'' AGARD Report AR 138, 1979.
 \bibitem{berrier1987tp2721} B.~L.~Berrier and F.~J.~Capone, ``Static internal performance of single-expansion-ramp and 2D-CD nozzles with thrust vectoring,'' NASA TP-2721, 1987.

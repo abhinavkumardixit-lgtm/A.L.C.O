@@ -86,6 +86,7 @@ We first evaluate GI-FNO on canonical transonic shock-boundary layer interaction
 \label{tab:rae2822}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lcccc}
 \toprule
 Model / Solver & $C_L$ Relative Err. & $C_p$ $L_2$ Err. & Shock Pos. ($x/c$) & Inference Latency \\
@@ -93,9 +94,10 @@ Model / Solver & $C_L$ Relative Err. & $C_p$ $L_2$ Err. & Shock Pos. ($x/c$) & I
 RANS (Spalart-Allm.) & 4.12\% & 5.82\% & 0.582 & 4.2 min (CPU) \\
 RANS (Menter SST)    & 2.85\% & 3.94\% & 0.571 & 6.8 min (CPU) \\
 Standard FNO-2D      & 3.40\% & 4.15\% & 0.562 & 7.6 ms (GPU) \\
-\textbf{GI-FNO (Ours)} & \textbf{0.88\%} & \textbf{1.24\%} & \textbf{0.554} & \textbf{7.60 ms (GPU) / 0.58 ms (INT8 Policy)} \\
+\textbf{GI-FNO (Ours)} & \textbf{0.88\%} & \textbf{1.24\%} & \textbf{0.554} & \textbf{7.60 / 0.58 ms} \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 Table~\ref{tab:bl_profile} provides boundary layer displacement thickness ($\delta^*$), momentum thickness ($\theta$), and skin friction ($c_f$) across chordwise stations on RAE 2822 Case 6.
@@ -105,6 +107,7 @@ Table~\ref{tab:bl_profile} provides boundary layer displacement thickness ($\del
 \label{tab:bl_profile}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lcccccc}
 \toprule
 Station ($x/c$) & Exp $\delta^*$ (mm) & GI-FNO $\delta^*$ & Exp $\theta$ (mm) & GI-FNO $\theta$ & Skin Friction $c_f$ \\
@@ -115,6 +118,7 @@ Station ($x/c$) & Exp $\delta^*$ (mm) & GI-FNO $\delta^*$ & Exp $\theta$ (mm) & 
 0.904 (Near TE)    & 6.42 & 6.50 & 3.92 & 3.95 & 0.00118 \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \begin{figure}[t]
@@ -132,6 +136,7 @@ On the NVIDIA HiLiftAeroML benchmark \cite{hiliftaeroml} comprising 1,800 WMLES 
 \label{tab:hilift}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lcccc}
 \toprule
 Architecture & Mean $C_L$ Err. & Mean $C_D$ Err. & $C_p$ Field Err. & Param Count \\
@@ -143,6 +148,7 @@ Standard FNO-3D      & 14.20\% & 24.10\% & 9.80\%  & 21.4M \\
 \textbf{GI-FNO (Ours)} & \textbf{11.61\%} & \textbf{20.17\%} & \textbf{7.42\%} & \textbf{22.8M} \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 Table~\ref{tab:slot_flux} details slot velocity ratios and mass flux recovery across multi-element components.
@@ -152,6 +158,7 @@ Table~\ref{tab:slot_flux} details slot velocity ratios and mass flux recovery ac
 \label{tab:slot_flux}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lcccc}
 \toprule
 Component & Gap/$c$ & WMLES Peak $V/U_\infty$ & GI-FNO Peak $V/U_\infty$ & Mass Flux Err. \\
@@ -162,6 +169,7 @@ Trailing Flap 1 (Vane) & 0.018 & 1.86 & 1.84 & 1.08\% \\
 Trailing Flap 2 (Main) & 0.024 & 1.62 & 1.60 & 1.24\% \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \begin{figure}[t]
@@ -179,6 +187,7 @@ When extrapolated beyond the nominal training envelope ($\alpha \in [22.5^\circ,
 \label{tab:hardware}
 \centering
 \footnotesize
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{lcccc}
 \toprule
 Platform & Precision & Batch & Latency & Power Dissipation \\
@@ -189,6 +198,7 @@ NVIDIA Orin NX    & INT8 & 1 & 0.58 ms & 20 W \\
 Systolic Edge Core & INT8 & 1 & 0.082 ms & 1.25 W \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \section{Conclusion}
@@ -208,7 +218,7 @@ The authors acknowledge the open dissemination of the NASA NPARC and NVIDIA HiLi
 \bibitem{li2023geofno} Z.~Li et al., ``Fourier neural operator with learned deformations for PDEs on general geometries,'' \emph{J. Mach. Learn. Res.}, vol.~24, pp.~1--26, 2023.
 \bibitem{pfaff2021mesh} T.~Pfaff et al., ``Learning mesh-based simulation with graph networks,'' in \emph{ICLR}, 2021.
 \bibitem{qi2017pointnetpp} C.~R.~Qi et al., ``PointNet++: Deep hierarchical feature learning on point sets in a metric space,'' in \emph{NeurIPS}, 2017.
-\bibitem{dixit2026zenodo} Anonymous Authors, `Supplementary multi-physics co-design telemetry, datasets, CAD, and silicon artifacts,'' 2026 (DOI withheld for double-blind review).
+\bibitem{dixit2026zenodo} Anonymous Authors, `Supplementary multi-physics co-design telemetry, datasets, CAD, and silicon artifacts,\'\' 2026 (DOI withheld for double-blind review).
 \end{thebibliography}
 
 \end{document}
