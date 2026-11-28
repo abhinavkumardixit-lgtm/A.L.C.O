@@ -34,9 +34,9 @@ Neural operators, Fourier neural operator, scientific machine learning, high-lif
 \section{Introduction}
 \IEEEPARSTART{T}{he} aerodynamic certification and real-time control of modern flight vehicles operating near the boundaries of their flight envelopes require precise resolution of strongly non-linear fluid phenomena. At high angles of attack or under severe atmospheric gusts, lifting surfaces experience adverse pressure gradients that trigger boundary layer detachment, unsteady vortex shedding, and dynamic stall. In transonic cruise, shock-boundary layer interactions induce local boundary layer thickening and flow separation, fundamentally altering flight dynamics.
 
-While computational fluid dynamics (CFD) methods have matured significantly, computational expense remains prohibitive for real-time applications. High-fidelity Wall-Modelled Large Eddy Simulation (WMLES) captures turbulent coherent structures accurately but requires supercomputing clusters. Linear eddy-viscosity RANS models (e.g., Spalart-Allmaras and Menter SST) introduce empirical closures that fail to capture massive separation. Scientific machine learning (SciML) has emerged as a promising alternative, yet standard neural network surrogates suffer from grid dependence and lack physical conservation.
+While computational fluid dynamics (CFD) methods have matured significantly, computational expense remains prohibitive for real-time applications. High-fidelity Wall-Modelled Large Eddy Simulation (WMLES) captures turbulent coherent structures accurately but requires supercomputing clusters. Linear eddy-viscosity RANS models (e.g., Spalart-Allmaras and Menter SST) introduce empirical closures that fail to capture massive separation \cite{leishman2002}. Scientific machine learning (SciML) has emerged as a promising alternative \cite{brunton2020}, yet standard neural network surrogates suffer from grid dependence and lack physical conservation.
 
-Fourier Neural Operators (FNO) parameterize integral operators in Fourier space, guaranteeing mesh-invariance and zero-shot super-resolution. However, classical FNO architectures assume flat Euclidean domains, leading to spectral ringing and severe boundary degradation when applied to complex aerodynamic geometries with high surface curvature and sharp leading edges. To overcome this fundamental limitation, we propose the Geometry-Informed Fourier Neural Operator (GI-FNO).
+Fourier Neural Operators (FNO) \cite{li2020fourier} and DeepONet \cite{lu2021learning} parameterize integral operators in function space, guaranteeing mesh-invariance and zero-shot super-resolution. However, classical FNO architectures assume flat Euclidean domains, leading to spectral ringing and severe boundary degradation when applied to complex aerodynamic geometries with high surface curvature and sharp leading edges \cite{li2023geofno}. To overcome this fundamental limitation, we propose the Geometry-Informed Fourier Neural Operator (GI-FNO).
 
 The key contributions of this paper are fourfold:
 \begin{enumerate}
@@ -80,7 +80,7 @@ We set $k_{\max} = 32$ and channel width $d_v = 64$, yielding 22.8M trainable pa
 \section{Experimental Validation on Benchmark Regimes}
 
 \subsection{NASA RAE 2822 Transonic Shock Benchmark}
-We first evaluate GI-FNO on canonical transonic shock-boundary layer interaction using the AGARD AR 138 experimental dataset (Case 6: $M_\infty = 0.729$, $\alpha = 2.31^\circ$, $Re = 6.50 \times 10^6$). As summarized in Table~\ref{tab:rae2822}, GI-FNO resolves the normal shock at $x/c = 0.554$ without numerical dispersion, achieving a relative $L_2$ surface $C_p$ error of 1.24\% and $C_L$ error of 0.88\%.
+We first evaluate GI-FNO on canonical transonic shock-boundary layer interaction using the AGARD AR 138 experimental dataset \cite{agard138,slater2004} (Case 6: $M_\infty = 0.729$, $\alpha = 2.31^\circ$, $Re = 6.50 \times 10^6$). As summarized in Table~\ref{tab:rae2822}, GI-FNO resolves the normal shock at $x/c = 0.554$ without numerical dispersion, achieving a relative $L_2$ surface $C_p$ error of 1.24\% and $C_L$ error of 0.88\%.
 
 \begin{table}[h]
 \caption{Aerodynamic Error Comparison on NASA RAE 2822 Case 6 ($M=0.729, \alpha=2.31^\circ, Re=6.5 \times 10^6$)}
@@ -126,7 +126,7 @@ Station ($x/c$) & Exp $\delta^*$ (mm) & GI-FNO $\delta^*$ & Exp $\theta$ (mm) & 
 \end{figure}
 
 \subsection{NVIDIA HiLiftAeroML 3D Multi-Element Corpus}
-On the NVIDIA HiLiftAeroML benchmark comprising 1,800 WMLES Navier-Stokes runs across 180 multi-element CRM-HL configurations, GI-FNO was tested on 18 strictly held-out test geometries. As shown in Table~\ref{tab:hilift}, GI-FNO achieves a mean $C_L$ relative error of 11.61\% and $C_D$ error of 20.17\%, outperforming industrial RANS closures by 37.2\%.
+On the NVIDIA HiLiftAeroML benchmark \cite{hiliftaeroml} comprising 1,800 WMLES Navier-Stokes runs across 180 multi-element CRM-HL configurations, GI-FNO was tested on 18 strictly held-out test geometries. As shown in Table~\ref{tab:hilift}, GI-FNO achieves a mean $C_L$ relative error of 11.61\% and $C_D$ error of 20.17\%, outperforming industrial RANS closures by 37.2\% as well as PointNet++ \cite{qi2017pointnetpp} and MeshGraphNet \cite{pfaff2021mesh}.
 
 \begin{table}[h]
 \caption{Evaluation on Held-Out HiLiftAeroML Benchmark (18 Geometries)}
@@ -196,7 +196,7 @@ Systolic Edge Core & INT8 & 1 & 0.082 ms & 1.25 W \\
 We presented the Geometry-Informed Fourier Neural Operator (GI-FNO) for multi-regime high-lift and separated aerodynamic flows. Validated against the NASA RAE 2822 wind-tunnel archive and NVIDIA HiLiftAeroML 3D WMLES database, GI-FNO resolves transonic shock discontinuities with 1.24\% $C_p$ error and predicts multi-element high-lift flows with 11.61\% $C_L$ error. Operating at 0.58~ms edge latency, GI-FNO provides a foundation for real-time aerodynamic envelope protection.
 
 \section*{Acknowledgment}
-The author conducted this research independently in Kanpur, India, and acknowledges the open dissemination of the NASA NPARC and NVIDIA HiLiftAeroML datasets.
+The author conducted this research independently in Kanpur, India, and acknowledges the open dissemination of the NASA NPARC and NVIDIA HiLiftAeroML datasets. All training logs, checkpoints, and benchmarks are openly archived on Zenodo \cite{dixit2026zenodo}.
 
 \begin{thebibliography}{10}
 \bibitem{li2020fourier} Z.~Li et al., ``Fourier neural operator for parametric partial differential equations,'' in \emph{ICLR}, 2021.
