@@ -59,7 +59,7 @@ Systolic ASIC     & Custom 28nm RTL & INT8 & \textbf{0.082 ms} & \textbf{1.25 W}
 \end{table}
 
 \section{Quantization \& Hessian Curvature Analysis}
-We map continuous FP32 weights $w$ to a signed 8-bit integer lattice $\{-128, \dots, 127\}$ via symmetric uniform scaling:
+We map continuous FP32 weights $w$ to a signed 8-bit integer lattice $\{-128, \dots, 127\}$ via symmetric uniform scaling \cite{jacob2018quantization,dong2019hawq}:
 \begin{equation}
 q = \text{clip}\left( \left\lfloor \frac{w}{S} \right\rceil, -128, 127 \right), \quad S = \frac{\max(|w|)}{127}.
 \end{equation}
@@ -94,13 +94,13 @@ Output Projection Layer & $[1, 64, 1, 1]$    & 2.1  & $3.1 \times 10^1$ & 0.02\%
 \end{figure}
 
 \section{Resonant Piezoelectric Power Driver \& ASIC Microarchitecture}
-The custom 28nm HPC+ systolic accelerator (`AG-GNN28-ASIC`) integrates a $16 \times 16$ INT8 MAC array, double-buffered 128~KB SRAM weight/activation scratchpads, and a deterministic 4-stage pipeline synthesized at 400~MHz ($4.12\text{ mm}^2$ post-synthesis area, $684\text{k}$ NAND2-equivalent gates, $+0.18\text{ ns}$ worst-case setup slack). Compared to FPGA implementations (e.g., Xilinx Zynq UltraScale+ requiring $\sim 4.5\text{ W}$ and $0.45\text{ ms}$ BRAM-stalled traversal), the dedicated systolic ASIC cuts energy per inference by $>15\times$ to $102.5\ \mu\text{J}$.
+The custom 28nm HPC+ systolic accelerator (`AG-GNN28-ASIC`) \cite{dixit2025aeroguard} integrates a $16 \times 16$ INT8 MAC array \cite{jouppi2017datacenter,chen2016eyeriss}, double-buffered 128~KB SRAM weight/activation scratchpads, and a deterministic 4-stage pipeline synthesized at 400~MHz ($4.12\text{ mm}^2$ post-synthesis area, $684\text{k}$ NAND2-equivalent gates, $+0.18\text{ ns}$ worst-case setup slack). Compared to FPGA implementations (e.g., Xilinx Zynq UltraScale+ requiring $\sim 4.5\text{ W}$ and $0.45\text{ ms}$ BRAM-stalled traversal), the dedicated systolic ASIC cuts energy per inference by $>15\times$ to $102.5\ \mu\text{J}$.
 
-To actuate 8 piezoelectric slots ($C = 45\text{ nF}$ each, $C_{\text{tot}} = 360\text{ nF}$) at $V_{pp} = 200\text{ V}$ and $f = 456.0\text{ Hz}$, the pure reactive capacitive power per slot is:
+To actuate 8 piezoelectric slots \cite{cattafesta2011actuators} ($C = 45\text{ nF}$ each, $C_{\text{tot}} = 360\text{ nF}$) at $V_{pp} = 200\text{ V}$ and $f = 456.0\text{ Hz}$, the pure reactive capacitive power per slot is:
 \begin{equation}
 P_{\text{react,slot}} = f C V^2 = 456.0 \times (45 \times 10^{-9}) \times (200)^2 = 0.821\text{ W / slot},
 \end{equation}
-yielding $6.57\text{ W}$ reactive power across the 8-slot array (before accounting for acoustic jet work, dielectric loss, and inverter switching losses). We implement a Class-D Zero-Voltage-Switching (ZVS) resonant topology in SPICE (`AG-PZT18-BCD`, TSMC 0.18$\mu$m BCD) incorporating an aggregate inductive tank:
+yielding $6.57\text{ W}$ reactive power across the 8-slot array (before accounting for acoustic jet work, dielectric loss, and inverter switching losses). We implement a Class-D Zero-Voltage-Switching (ZVS) resonant topology \cite{erickson2007fundamentals} in SPICE (`AG-PZT18-BCD`, TSMC 0.18$\mu$m BCD) incorporating an aggregate inductive tank:
 \begin{equation}
 L = \frac{1}{\omega_0^2 C_{\text{tot}}} = \frac{1}{(2\pi \cdot 456.0)^2 \cdot (360 \times 10^{-9})} \approx 0.338\text{ H} \quad (2.71\text{ H / slot}).
 \end{equation}
@@ -155,7 +155,7 @@ Deep Envelope ($35.51^\circ$ AoA)& 7.60 ms & 0.58 ms & $0.88^\circ$ & CONTROLLED
 \end{table}
 
 \section{Conclusion}
-We developed an ultra-low-latency edge AI and resonant actuator driver suite for active aerodynamic flow control. Quantized INT8 execution on Jetson Orin NX delivers 0.58~ms latency at 20.0~W TDP (11.60~mJ per inference), while a custom 28nm systolic accelerator achieves $82\ \mu\text{s}$ at 1.25~W. Coupled with a 94.2\%-efficient ZVS resonant driver (11.4~W array power), the architecture eliminates mechanical lag and guarantees deterministic real-time flight envelope protection.
+We developed an ultra-low-latency edge AI and resonant actuator driver suite for active aerodynamic flow control. Quantized INT8 execution on Jetson Orin NX delivers 0.58~ms latency at 20.0~W TDP (11.60~mJ per inference), while a custom 28nm systolic accelerator achieves $82\ \mu\text{s}$ at 1.25~W. Coupled with a 94.2\%-efficient ZVS resonant driver (11.4~W array power), the architecture eliminates mechanical lag and guarantees deterministic real-time flight envelope protection; all RTL, SPICE, and HIL logs are archived on Zenodo \cite{dixit2026zenodo}.
 
 \begin{thebibliography}{10}
 \bibitem{jacob2018quantization} B.~Jacob et al., ``Quantization and training of neural networks for efficient integer-arithmetic-only inference,'' in \emph{CVPR}, 2018.

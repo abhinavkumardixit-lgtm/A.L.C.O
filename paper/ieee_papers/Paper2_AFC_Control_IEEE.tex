@@ -32,9 +32,9 @@ Active flow control, synthetic jet actuators, dynamic stall delay, microburst gu
 \end{IEEEkeywords}
 
 \section{Introduction}
-\IEEEPARstart{A}{tmospheric} microbursts produce violent localized vertical downdrafts that transition into rapid horizontal outflow shear near ground level. When an aircraft penetrates a microburst during approach, the rapid descent velocity vector alters the relative wind, inducing an instantaneous angle of attack spike. Traditional aerodynamic control surfaces rely on mechanical servos and hydraulic actuators whose phase lag ($\tau_{\text{act}} \approx 100\text{ ms}$) permits dynamic stall vortex formation before control moments can develop.
+\IEEEPARstart{A}{tmospheric} microbursts produce violent localized vertical downdrafts \cite{fujita1985} that transition into rapid horizontal outflow shear near ground level. When an aircraft penetrates a microburst during approach, the rapid descent velocity vector alters the relative wind, inducing an instantaneous angle of attack spike and dynamic stall \cite{leishman2002}. Traditional aerodynamic control surfaces rely on mechanical servos and hydraulic actuators whose phase lag ($\tau_{\text{act}} \approx 100\text{ ms}$) permits dynamic stall vortex formation before control moments can develop.
 
-Zero-Net-Mass-Flux (ZNMF) synthetic jet actuators generate high-velocity oscillatory fluid pulses through alternating suction and expulsion cycles across a surface orifice. Because fluid is drawn from and returned to the boundary layer, no external compressed air supply is required. Synthetic jets introduce high-momentum spanwise vortices directly into the near-wall boundary layer, energizing the flow and delaying separation.
+Zero-Net-Mass-Flux (ZNMF) synthetic jet actuators generate high-velocity oscillatory fluid pulses through alternating suction and expulsion cycles across a surface orifice \cite{smith1998,amitay2006}. Because fluid is drawn from and returned to the boundary layer, no external compressed air supply is required. Synthetic jets introduce high-momentum spanwise vortices directly into the near-wall boundary layer, energizing the flow and delaying separation \cite{cattafesta2004,aflonext2016}.
 
 \begin{figure}[t]
 \centering
@@ -55,7 +55,7 @@ where $c_0$ is the local speed of sound, $A_0$ is slot orifice area, $V_0$ is ca
 C_\mu = 2 \left( \frac{d}{c} \right) \left( \frac{\bar{U}_j}{U_\infty} \right)^2.
 \end{equation}
 
-Table~\ref{tab:sja_params} summarizes actuator physical and electrical characteristics calibrated against NASA Langley database measurements.
+Table~\ref{tab:sja_params} summarizes actuator physical and electrical characteristics calibrated against NASA Langley database and NPARC validation measurements \cite{cattafesta2004,slater2004}.
 
 \begin{table}[h]
 \caption{Piezoelectric ZNMF Actuator Parameters and Wind-Tunnel Calibration}
@@ -86,7 +86,7 @@ Orifice Slot Width       & $d_{\text{slot}}$ & 0.50 & $0.50 \pm 0.02$ & mm \\
 \end{figure}
 
 \section{Sliding Mode Controller Synthesis}
-We define the tracking error as $e(t) = \alpha(t) - \alpha_{\text{ref}}(t)$. The sliding manifold $s(t)$ and Super-Twisting reaching law are formulated as:
+We define the tracking error as $e(t) = \alpha(t) - \alpha_{\text{ref}}(t)$. Following sliding mode control theory \cite{slotine1991}, the sliding manifold $s(t)$ and Super-Twisting reaching law are formulated as:
 \begin{align}
 s(t) &= \dot{\alpha}(t) + \lambda e(t), \\
 \dot{s}(t) &= -k_1 |s|^{1/2} \text{sgn}(s) + z, \quad \dot{z} = -k_2 \text{sgn}(s).
@@ -147,7 +147,7 @@ Sensor Telemetry Lag  & Up to 5.0 ms      & $58.4^\circ$ & Stable & 0.58 ms \\
 Closed-loop active flow control using 456.0~Hz resonant synthetic jet actuators successfully mitigates severe FAA $-8.5\text{ m/s}$ microburst downdrafts, achieving 78.0\% peak normal load factor alleviation and extending the critical stall angle to $35.51^\circ$. With 0.58~ms deterministic edge latency and 11.4~W nominal array power, the system enables reactive aerodynamic envelope protection for next-generation flight vehicles.
 
 \section*{Acknowledgment}
-The author conducted this research independently in Kanpur, India, and acknowledges the NASA Langley SJA database and NLR AFLoNext consortium datasets.
+The author conducted this research independently in Kanpur, India, and acknowledges the NASA Langley SJA database and NLR AFLoNext consortium datasets. Supporting telemetry and simulation logs are archived on Zenodo \cite{dixit2026zenodo}.
 
 \begin{thebibliography}{10}
 \bibitem{leishman2002} J.~G.~Leishman, ``Challenges in modeling the unsteady aerodynamics of dynamic stall,'' \emph{J. Aircraft}, vol.~39, no.~5, pp.~745--757, 2002.

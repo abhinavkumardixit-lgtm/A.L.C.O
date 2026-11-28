@@ -44,7 +44,7 @@ To overcome this fundamental challenge in computational engineering, we introduc
 \end{figure}
 
 \section{The 11-Dataset Multi-Physics Benchmark Corpus}
-The validation corpus integrates 11 physical datasets spanning canonical experimental archives and high-fidelity Large Eddy Simulations, as detailed in Table~\ref{tab:benchmarks}.
+The validation corpus integrates 11 physical datasets spanning canonical experimental archives (NASA RAE 2822 \cite{cook1979rae2822}, NASA TP-2721 \cite{berrier1987tp2721}, NASA Langley SJA \cite{cattafesta2004sja}, NLR AFLoNext \cite{nlr2016aflonext}, EUCASS \cite{eucass2017microjet}) and high-fidelity Large Eddy Simulations (NVIDIA HiLiftAeroML \cite{hiliftaeroml2024}) alongside our continuous telemetry \cite{dixit2025continuous}, as detailed in Table~\ref{tab:benchmarks}.
 
 \begin{table}[h]
 \caption{Master Multi-Physics Benchmark Corpus Across 11 Authoritative Datasets}
@@ -75,7 +75,7 @@ At every evolutionary checkpoint $t \to t+1$, candidate surrogate weights $\thet
 \begin{equation}
 M_d(\theta_{t+1}) \ge M_d(\theta_t) - \epsilon_d, \quad \forall d \in \{1, \dots, 11\},
 \end{equation}
-where $M_d$ is the certified accuracy metric and $\epsilon_d = 0.005$ (0.5\% maximum allowable degradation). Algorithm~\ref{alg:gate} summarizes the automated gating loop. Using cached reference batches ($N=256$ per benchmark), evaluating all 11 gates requires $1.78\text{ s}$ per checkpoint ($<0.4\%$ of total 40.63~h co-design wall-clock time). If any gate fails, the candidate is automatically rolled back to the certified elite state.
+where $M_d$ is the certified accuracy metric and $\epsilon_d = 0.005$ (0.5\% maximum allowable degradation). The automated gating loop below evaluates all 11 gates using cached reference batches ($N=256$ per benchmark), requiring $1.78\text{ s}$ per checkpoint ($<0.4\%$ of total 40.63~h co-design wall-clock time). If any gate fails, the candidate is automatically rolled back to the certified elite state.
 
 \begin{algorithmic}[1]
 \REQUIRE Candidate $\theta_{t+1}$, Elite $\theta_t^*$, Benchmarks $\{\mathcal{D}_d\}_{d=1}^{11}$, Tolerance $\epsilon_d = 0.005$
@@ -88,7 +88,7 @@ where $M_d$ is the certified accuracy metric and $\epsilon_d = 0.005$ (0.5\% max
 \end{algorithmic}
 
 \section{Elastic Weight Consolidation (EWC)}
-To prevent catastrophic forgetting in continuous surrogate updates, we incorporate Elastic Weight Consolidation (EWC). The regularized loss is formulated as:
+To prevent catastrophic forgetting in continuous surrogate updates, we incorporate Elastic Weight Consolidation (EWC) \cite{kirkpatrick2017overcoming} and compare against continual learning baselines \cite{zenke2017continual}. The regularized loss is formulated as:
 \begin{equation}
 \mathcal{L}_{\text{EWC}}(\theta) = \mathcal{L}_{\text{new}}(\theta) + \sum_i \frac{\lambda_{\text{EWC}}}{2} F_i (\theta_i - \theta_{\text{base},i}^*)^2,
 \end{equation}
@@ -132,7 +132,7 @@ Replay Buffer (10\%)     & 1.65\%        & 13.20\% & 1.92\% & Marginal \\
 \end{figure}
 
 \section{Statistical Process Control (SPC) Drift Tracking}
-To detect metric drift in real time, population fitness distributions are monitored via Shewhart 3-sigma control charts:
+To detect metric drift in real time, population fitness distributions are monitored via Shewhart 3-sigma control charts \cite{montgomery2009introduction}:
 \begin{equation}
 \text{UCL}, \text{LCL} = \bar{\mu} \pm 3 \frac{\sigma}{\sqrt{N}}.
 \end{equation}
